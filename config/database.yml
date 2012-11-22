@@ -34,7 +34,7 @@ test:
   username: webdesig_test2
   password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
-  
+  host: 83.170.104.147
 
 production:
   adapter: mysql2
@@ -44,4 +44,4 @@ production:
   username: webdesig_test2
   password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
-  
+  host: 83.170.104.147
