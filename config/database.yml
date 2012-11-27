@@ -20,7 +20,6 @@ development:
   database: webdesig_ki
   pool: 5
   username: webdesig_test2
-  password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
   host: 83.170.104.147
 # Warning: The database defined as "test" will be erased and
@@ -32,7 +31,6 @@ test:
   database: webdesig_ki
   pool: 5
   username: webdesig_test2
-  password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
   host: 83.170.104.147
 
@@ -42,6 +40,5 @@ production:
   database: webdesig_ki
   pool: 5
   username: webdesig_test2
-  password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
   host: 83.170.104.147
