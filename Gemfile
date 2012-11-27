@@ -24,6 +24,7 @@ group :test, :development do
   gem 'capybara'
   gem 'turn'
   gem 'rspec-rails'
+  gem 'guard-rspec'
 end
 
 gem 'jquery-rails'
