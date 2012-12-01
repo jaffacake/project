@@ -20,13 +20,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :test, :development do
-  gem 'capybara'
-  gem 'turn'
-  gem 'rspec-rails'
-  gem 'guard-rspec'
-end
-
 gem 'jquery-rails'
 
 gem 'devise'
