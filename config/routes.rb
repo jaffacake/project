@@ -38,6 +38,10 @@ Crm::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
+  
+  resources :tweets do
+    
+  end
 
   # Sample resource route within a namespace:
   #   namespace :admin do
