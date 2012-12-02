@@ -39,9 +39,7 @@ Crm::Application.routes.draw do
   #     end
   #   end
   
-  resources :tweets do
-    
-  end
+  resources :tweet
 
   # Sample resource route within a namespace:
   #   namespace :admin do
