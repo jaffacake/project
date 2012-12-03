@@ -10,6 +10,18 @@
 BOO-index!!!
 <%= yield %>
 
+<% if @tweets.blank? %>
+<p>There are not any Tweets currently in the system.</p>
+<% else %>
+<p>These are the current Tweets in our system</p>
+<ul id="Tweets">
+<% @tweets.each do |c| %>
+<li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
+<% end %>
+</ul>
+<% end %>
+<p><%= link_to "Add new Tweet", {:action => 'new' }%></p>
+
 
 </body>
 </html>
