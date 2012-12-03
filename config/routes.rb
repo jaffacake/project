@@ -7,7 +7,7 @@ Crm::Application.routes.draw do
 
   resources :tweet, :controller => "tweet"
   
-  match "/tweets/list" => "tweets#list"
+  match "/tweet/list" => "tweet#list"
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
