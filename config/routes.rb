@@ -5,7 +5,7 @@ Crm::Application.routes.draw do
   root :to => 'tweet#index'
 
 
-  resources :tweet
+  resources :tweet, :controller => "tweet"
   
   match "/tweets/list" => "tweets#list"
   
