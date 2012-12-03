@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-BOO!!!
+BOO-this is the application view in views/layouts/application.html!!!
 <%= yield %>
 
-<%= t = Tweet.find(3)%>
+<%= t = Tweet.find(:all)%>
 
 
 </body>
