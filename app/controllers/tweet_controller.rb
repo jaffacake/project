@@ -1,5 +1,5 @@
 class TweetController < ApplicationController
-  def index
+  def list
     @tweets = Tweet.find(:all)
   end
 end

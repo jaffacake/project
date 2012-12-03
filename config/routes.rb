@@ -4,6 +4,9 @@ Crm::Application.routes.draw do
   
   root :to => 'tweet#index'
 
+
+  resources :tweet
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -41,7 +44,7 @@ Crm::Application.routes.draw do
   #     end
   #   end
   
-  resources :tweet
+
 
   # Sample resource route within a namespace:
   #   namespace :admin do
