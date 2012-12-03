@@ -16,7 +16,7 @@ BOO-index!!!
 <p>These are the current Tweets in our system</p>
 <ul id="Tweets">
 <% @tweets.each do |c| %>
-<li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
+<li><%= link_to c.tweet, {:action => 'show', :id => c.id} -%></li>
 <% end %>
 </ul>
 <% end %>
