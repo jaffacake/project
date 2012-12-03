@@ -1,15 +1,15 @@
 class TweetController < ApplicationController
   
   def list
-    @tweets = Tweet.find(:all)
+    @tweets = Tweet.all
   end
   
   def index
-    @tweets = Tweet.find(:all)
+    @tweets = Tweet.all
   end
   
   def show
-    @tweets = Tweet.find(params[:id])
+    @tweets = Tweet.find_by_id(params[:id])
   end
   
   def new
@@ -24,18 +24,18 @@ class TweetController < ApplicationController
   end
   
   def edit
-     @tweets = Tweet.find(params[:id])
+     @tweets = Tweet.find_by_id(params[:id])
   end
      
   def update
-    @tweets = Tweet.find(params[:id])
+    @tweets = Tweet.find_by_id(params[:id])
     if @tweets.update_attributes(params[:tweet])
       redirect_to :action => 'show', :id => @tweets
     end
   end
   
   def delete
-    Tweet.find(params[:id]).destroy
+    Tweet.find_by_id(params[:id]).destroy
     redirect_to :action => 'list'
   end
   
