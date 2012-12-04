@@ -4,7 +4,7 @@ BOO-New!!
 <h1>Add new Tweet</h1>
 
 
-<%= form_for @tweets(Tweet.new) do |f| %>
+<%= form_for(Tweet.new) do |f| %>
   <%= f.label :tweet %>:
   <%= f.text_field :tweet %><br />
   <%= f.submit %>
