@@ -3,14 +3,14 @@ BOO-New!!
 
 <h1>Add new Tweet</h1>
 
-<%= start_form_tag :action => 'create' %>
 
-<p><label for="tweet">Tweet</label>:
-<%= text_area 'tweet', 'tweet' %></p>
+<%= form_for @tweets do |f| %>
+  <%= f.label :tweet %>:
+  <%= f.text_field :tweet %><br />
 
-<p><label for="user">User</label>:
-<%= text_field 'tweet', 'user' %></p>
 
-<%= submit_tag "Create" %>
-<%= end_form_tag %>
+  <%= f.submit %>
+<% end %>
+
+
 <%= link_to 'Back', {:action => 'list'} %>
