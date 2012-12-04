@@ -13,7 +13,7 @@ class TweetController < ApplicationController
   end
   
   def new
-    @tweets = Tweet.new
+    @tweet = Tweet.new
     
   end
   
