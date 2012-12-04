@@ -14,6 +14,7 @@ class TweetController < ApplicationController
   
   def new
     @tweets = Tweet.new
+    
   end
   
   def create
