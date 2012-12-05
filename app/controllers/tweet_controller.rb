@@ -12,10 +12,10 @@ class TweetController < ApplicationController
     @tweets = Tweet.find_by_id(params[:id])
   end
   
-  def new
-    @tweet = Tweet.new
+ # def new
+  #  @tweet = Tweet.new
     
-  end
+ # end
   
   def create
     @tweets = Tweet.new(params[:tweet])
