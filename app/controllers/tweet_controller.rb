@@ -12,10 +12,12 @@ class TweetController < ApplicationController
     @tweets = Tweet.find_by_id(params[:id])
   end
   
- # def new
-  #  @tweet = Tweet.new
-    
- # end
+  def new
+    @tweet = Tweet.new(params[:tweet])
+    if @tweets.save
+      redirect_to :action => 'list'
+    end
+  end
   
   def create
     @tweets = Tweet.new(params[:tweet])
