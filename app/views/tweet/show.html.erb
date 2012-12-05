@@ -1,4 +1,6 @@
 
 BOO-show!!!
 
-<li><%= @tweets.tweet -%></li>
+<li><%= @tweets.tweet - @tweets.userId -%></li>
+
+<%= link_to 'Edit', edit_post_path(@tweets) %> |
