@@ -13,10 +13,7 @@ class TweetController < ApplicationController
   end
   
   def new
-    @tweet = Tweet.new(params[:tweet])
-    if @tweets.save
-      redirect_to :action => 'list'
-    end
+    @tweets = Tweet.new
   end
   
   def create

@@ -4,9 +4,11 @@ BOO-New!!
 <h1>Add new Tweet</h1>
 
 
-<%= form_for(Tweet.new) do |f| %>
+<%= form_for @tweets do |f| %>
   <%= f.label :tweet %>:
   <%= f.text_field :tweet %><br />
+  <%= f.label :userId %>:
+  <%= f.text_field :userId %><br />
   <%= f.submit %>
 <% end %>
 
