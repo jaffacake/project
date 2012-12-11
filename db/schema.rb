@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211111558) do
+ActiveRecord::Schema.define(:version => 20121211123717) do
 
   create_table "clients", :primary_key => "clientid", :force => true do |t|
     t.string "username", :limit => 30, :null => false
@@ -48,8 +48,22 @@ ActiveRecord::Schema.define(:version => 20121211111558) do
   end
 
   create_table "fyp_users", :force => true do |t|
-    t.string "name"
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
+
+  add_index "fyp_users", ["email"], :name => "index_fyp_users_on_email", :unique => true
+  add_index "fyp_users", ["reset_password_token"], :name => "index_fyp_users_on_reset_password_token", :unique => true
 
   create_table "lessons", :primary_key => "lessonid", :force => true do |t|
     t.string   "description",   :limit => 35, :null => false
