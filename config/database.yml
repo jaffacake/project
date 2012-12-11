@@ -17,9 +17,9 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: webdesig_ki
+  database: webdesig_fyp
   pool: 5
-  username: webdesig_test2
+  username: webdesig_fyp
   password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
   host: 83.170.104.147
@@ -29,9 +29,9 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: webdesig_ki
+  database: webdesig_fyp
   pool: 5
-  username: webdesig_test2
+  username: webdesig_fyp
   password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
   host: 83.170.104.147
@@ -39,9 +39,9 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: webdesig_ki
+  database: webdesig_fyp
   pool: 5
-  username: webdesig_test2
+  username: webdesig_fyp
   password: yKG+v)Jx+oh4
   socket: /tmp/mysql.sock
   host: 83.170.104.147
