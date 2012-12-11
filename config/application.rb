@@ -51,11 +51,12 @@ module Crm
     # config.active_record.whitelist_attributes = true
 
     # Table prefix
-    config.active_record.table_name_prefix = "fyp_"
+    # config.active_record.table_name_prefix = "fyp_"
     
     # Enable the asset pipeline
     config.assets.enabled = true
     
+    # Devise setting for heroku
     config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
