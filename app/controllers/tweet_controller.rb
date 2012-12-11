@@ -1,4 +1,5 @@
 class TweetController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show,:index,:list]
   
   def list
     @tweets = Tweet.all

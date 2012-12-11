@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20121211123717) do
 
   create_table "users", :force => true do |t|
+    t.integer  "id",    :null =>false, :options => 'PRIMARY KEY'
     t.string   "username",               :default => "", :null => false
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -33,4 +34,9 @@ ActiveRecord::Schema.define(:version => 20121211123717) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
+  create_table "tweets", :force => true do |t|
+    t.integer "id", :null =>false, :options => 'PRIMARY KEY'
+    t.string "tweet"
+    t:integer "user_id"
+  end
 end
