@@ -1,0 +1,21 @@
+<h1>Listing estate_agents</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estate_agents.each do |estate_agent| %>
+  <tr>
+    <td><%= link_to 'Show', estate_agent %></td>
+    <td><%= link_to 'Edit', edit_estate_agent_path(estate_agent) %></td>
+    <td><%= link_to 'Destroy', estate_agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Estate agent', new_estate_agent_path %>
