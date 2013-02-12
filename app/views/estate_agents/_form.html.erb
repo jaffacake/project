@@ -15,10 +15,11 @@
     <%= f.label :estate_agent %><br />
     <%= f.text_field :estate_agent %>
   </div>
-  <div class="field">
-    <%= f.label :address_line1 %><br />
-    <%= f.text_field :address_line1 %>
-  </div>
+  
+  <h2>Address</h2>
+  <%= render :partial => 'addresses/form',
+             :locals => {:form => post_form} %>
+  
 	<div class="field">
     <%= f.label :license_expiry_date %><br />
     <%= f.text_field :license_expiry_date %>
