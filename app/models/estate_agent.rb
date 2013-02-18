@@ -1,9 +1,9 @@
 class EstateAgent < ActiveRecord::Base
   # attr_accessible :title, :body
-  has_one :addresses
+  has_one :address
   
   attr_accessible :id, :estate_agent, :license_expiry_date, :address
   
-  accepts_nested_attributes_for :addresses, :allow_destroy => :true,
-  
+  accepts_nested_attributes_for :address, :allow_destroy => :true,
+ 
 end

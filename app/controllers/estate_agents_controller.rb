@@ -25,7 +25,6 @@ class EstateAgentsController < ApplicationController
   # GET /estate_agents/new.json
   def new
     @estate_agent = EstateAgent.new
-    @address = Address.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @estate_agent }
@@ -41,7 +40,6 @@ class EstateAgentsController < ApplicationController
   # POST /estate_agents.json
   def create
     @estate_agent = EstateAgent.new(params[:estate_agent])
-    @address = Address.new(params[:address])
     respond_to do |format|
       if @estate_agent.save
         format.html { redirect_to @estate_agent, notice: 'Estate agent was successfully created.' }
