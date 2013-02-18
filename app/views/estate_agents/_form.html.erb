@@ -20,7 +20,9 @@
 	
 	<%= f.fields_for :address do |builder|%>
 		<fieldset>
-			<%= builder.text_area :address_line1 %>
+			<%= builder.label :address_line1, "Address Line 1"%>
+			<%= builder.text_area :address_line1 %><br />
+			<%= builder.label :address_line2, "Address Line 2"%>
 			<%= builder.text_area :address_line2 %>
 		</fieldset>
 	<% end %>
