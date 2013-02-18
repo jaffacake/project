@@ -1,6 +1,6 @@
 class EstateAgent < ActiveRecord::Base
   # attr_accessible :title, :body
-  has_one :address
+  belongs_to :address
   
   attr_accessible :id, :name, :license_expiry_date, :address_attributes
   
