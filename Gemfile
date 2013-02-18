@@ -20,6 +20,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'awesome_nested_fields'
+
 gem 'jquery-rails'
 
 gem 'devise'

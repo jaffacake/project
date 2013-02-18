@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20121211123717) do
 
-  create_table "address", :force => true do |t|
+  create_table "addresses", :force => true do |t|
     t.string "address_line1",    :limit => 45, :null => false
     t.string "address_line2",    :limit => 45
     t.string "address_town",     :limit => 45
