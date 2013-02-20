@@ -22,6 +22,12 @@
 		<%= render 'addresses/address_fields', f: builder %>
 	<% end %>
 	
+	<h2>Users</h2>
+	
+	<%= f.fields_for :user do |builder|%>
+		<%= render 'users/user_fields', f: builder %>
+	<% end %>
+<h2>License</h2>	
 	<div class="field">
     <%= f.label :license_expiry_date %><br />
     <%= f.text_field :license_expiry_date %>
