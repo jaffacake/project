@@ -1,10 +1,13 @@
 Crm::Application.routes.draw do
 
-  resources :addresses
+  #esources :addresses
 
   #resources :users
   
   resources :estate_agents
+  
+    get '', to: 'dashboard#index', as: '/'
+    resources :addresses
 
 
   devise_for :users
@@ -14,9 +17,9 @@ Crm::Application.routes.draw do
   
   root :to => 'dashboard#index'
 
-  resources :tweet, :controller => "tweet"
+  #resources :tweet, :controller => "tweet"
   
-  match 'tweet' => 'tweet#index'
+  #match 'tweet' => 'tweet#index'
   
   #root :to => 'application'
   

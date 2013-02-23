@@ -2,16 +2,17 @@
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Line 1</th>
+    <th>Line 2</th>
+    <th>Post Code</th>
   </tr>
 
 <% @addresses.each do |address| %>
   <tr>
-    <td><%= link_to 'Show', address %></td>
-    <td><%= link_to 'Edit', edit_address_path(address) %></td>
-    <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<td><%= address.address_line1 %></td>
+  	<td><%= address.address_line2 %></td>
+  	<td><%= address.address_postcode %></td>
+  	<td><%= link_to 'Show', address %> | <%= link_to 'Edit', edit_address_path(address) %> | <%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
