@@ -1,10 +1,8 @@
 Crm::Application.routes.draw do
-  
-  get "dashboard/index"
 
   resources :addresses
 
-  resources :users
+  #resources :users
   
   resources :estate_agents
 
