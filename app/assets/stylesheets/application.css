@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
 */
+
+.menu{
+	list-style-type: none;
+	height: 30px;
+	margin: auto;
+}
+
+.menu li{
+	float: left;
+}
+
+.menu li a{
+	padding-right: 10px;
+	padding-left: 10px;
+	display: block;
+}
