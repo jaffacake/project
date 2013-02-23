@@ -26,7 +26,7 @@ class EstateAgentsController < ApplicationController
   def new
     @estate_agent = EstateAgent.new
     @estate_agent.build_address
-    @estate_agent.build_user
+    @estate_agent.user.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @estate_agent }
