@@ -1,6 +1,15 @@
 Crm::Application.routes.draw do
 
   
+  resources :landlords
+
+
+  resources :tenants
+
+
+  resources :properties
+
+
   resources :estate_agents
   
     get '', to: 'dashboard#index', as: '/'
