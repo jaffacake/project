@@ -23,6 +23,25 @@
   <div class="field"><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
   
+  
+  
+  <% if @user.address %>
+  
+  <h2>Address</h2>
+	
+	<%= f.fields_for :address do |builder|%>
+		<%= render 'addresses/address_fields', f: builder %>
+	<% end %>
+	
+  <% end %>
+  
+  <div class="select">
+<%= f.label(:admin, "Estate Agent Admin") %>
+<%= f.radio_button(:admin, "1") %>
+<%= f.label(:admin, "Estate Agent User") %>
+<%= f.radio_button(:admin, "0") %>
+</div>
+
   <div class="dropdown">
   	<%= f.label :user %><br />
   	<%= f.select(:estate_agent_id, EstateAgent.all.map {|p| [p.name,p.id]}, :prompt => "Select an Estate Agent") %>

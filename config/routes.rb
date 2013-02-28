@@ -1,8 +1,5 @@
 Crm::Application.routes.draw do
 
-  #esources :addresses
-
-  #resources :users
   
   resources :estate_agents
   
@@ -10,9 +7,9 @@ Crm::Application.routes.draw do
     resources :addresses
 
 
-  #resources :users
-  devise_for :users
-  
+  #
+  devise_for :users, :path_prefix => 'my'
+  resources :users
    # The priority is based upon order of creation:
   # first created -> highest priority.
   

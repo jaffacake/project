@@ -2,8 +2,11 @@ class EstateAgentsController < ApplicationController
   # GET /estate_agents
   # GET /estate_agents.json
   def index
-    @estate_agents = EstateAgent.all
-
+    if current_user.admin == 3
+      @estate_agents = EstateAgent.all
+    else
+      @estate_agents = EstateAgent.find(current_user.estate_agent_id)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @estate_agents }

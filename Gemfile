@@ -27,6 +27,10 @@ gem 'jquery-rails'
 gem 'devise'
 
 
+# This plugin will help with security of nested attributes
+#gem 'strong_parameters'
+
+
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec'
