@@ -25,7 +25,12 @@ class TenantsController < ApplicationController
   # GET /tenants/new.json
   def new
     @tenant = Tenant.new
-
+    @tenant.build_contact_detail
+    @tenant.contact_detail.build_address
+    @tenant.build_place_of_work
+    @tenant.place_of_work.build_contact_detail
+    @tenant.place_of_work.contact_detail.build_address
+    #@tenant.place_of_work.build_address
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @tenant }

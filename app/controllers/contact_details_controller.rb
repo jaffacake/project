@@ -25,7 +25,8 @@ class ContactDetailsController < ApplicationController
   # GET /contact_details/new.json
   def new
     @contact_detail = ContactDetail.new
-
+    @contact_detail.build_address
+    #@estate_agent.user.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @contact_detail }

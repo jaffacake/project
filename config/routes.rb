@@ -1,6 +1,9 @@
 Crm::Application.routes.draw do
 
   
+  resources :place_of_works
+
+
   resources :contact_details
 
 

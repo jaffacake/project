@@ -1,7 +1,5 @@
 <div class="field">
-    	<%= f.label :title %><br />
-    	<%= f.text_field :title %>
-    	<%= select_tag(:title, options_for_select([['Title', nil], ['Mr', 1], ['Mrs', 2],['Ms', 3],['Miss', 4]], nil)) %>
+    	<%= f.select(:title, options_for_select([['Title', nil], ['Mr', 1], ['Mrs', 2],['Ms', 3],['Miss', 4]], nil)) %>
   </div>
   	
   	<div class="field">
@@ -23,12 +21,13 @@
     	<%= f.label :mobile_number %><br />
     	<%= f.text_field :mobile_number %>
   	</div>
+
   	
+  	  	
   	<div class="field">
-    	<%= f.label :mobile_number2 %><br />
-    	<%= f.text_field :mobile_number2 %>
+    	<%= f.label :mobile_number_2 %><br />
+    	<%= f.text_field :mobile_number_2 %>
   	</div>
-  	
   	
   	<div class="field">
     	<%= f.label :fax_number %><br />
@@ -44,3 +43,8 @@
     	<%= f.label :best_contact_time %><br />
     	<%= f.text_field :best_contact_time %>
   	</div>
+
+<h2>Address</h2>
+	<%= f.fields_for :address do |builder|%>
+		<%= render 'addresses/address_fields', f: builder %>
+	<% end %>

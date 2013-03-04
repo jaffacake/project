@@ -1,0 +1,21 @@
+<h1>Listing place_of_works</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @place_of_works.each do |place_of_work| %>
+  <tr>
+    <td><%= link_to 'Show', place_of_work %></td>
+    <td><%= link_to 'Edit', edit_place_of_work_path(place_of_work) %></td>
+    <td><%= link_to 'Destroy', place_of_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Place of work', new_place_of_work_path %>
