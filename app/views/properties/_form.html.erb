@@ -11,8 +11,192 @@
     </div>
   <% end %>
 
+	<!-- Needs to be date selector -->
+	<div class="field">
+    	<%= f.label :available_date %><br />
+    	<%= f.text_field :available_date %>
+  	</div>
+
+	<div class="field">
+    	<%= f.label :price %><br />
+    	<%= f.text_field :price %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :lease_price %><br />
+    	<%= f.text_field :lease_price %>
+  	</div>
+  	
+  	<div class="field">
+  		<%= f.label :type %><br />
+    	<%= f.select(:type, options_for_select([['Residential', 0], ['Commercial', 1], ['BMV', 2]], nil)) %>
+  </div>
+  	
+  	<div class="field">
+  		<%= f.label :payment_type %><br />
+    	<%= f.select(:payment_type, options_for_select([['Sale', 0], ['Let', 1]], nil)) %>
+  </div>
+  	
+  	<!-- Needs to be drop down (From Property Style Model) 
+  	<div class="field">
+    	< f.label :property_style ><br />
+    	< f.text_field :property_style >
+  	</div>
+  	-->
+
+  	<div class="field">
+  		<%= f.label :tenure %><br />
+    	<%= f.select(:tenure, options_for_select([[ 'Freehold', 0], ['Leasehold', 1]], nil)) %>
+  </div>
+  	
+  	<div class="field">
+    	<%= f.label :use_class %><br />
+    	<%= f.text_field :use_class %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :square_feet %><br />
+    	<%= f.text_field :square_feet %>
+  	</div>
+
+  	<div class="field">
+  		<%= f.label :floors %><br />
+    	<%= f.select(:floors, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['7', 7], ['8', 9], ['9', 9], ['10', 10]], nil)) %>
+  </div>
+  	 	
+  	<div class="field">
+  		<%= f.label :bedrooms %><br />
+    	<%= f.select(:bedrooms, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['7', 7], ['8', 9], ['9', 9], ['10', 10]], nil)) %>
+  </div>
+  	
+  	<div class="field">
+  		<%= f.label :reception_rooms %><br />
+    	<%= f.select(:reception_rooms, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['7', 7], ['8', 9], ['9', 9], ['10', 10]], nil)) %>
+  </div>
+  
+  	<div class="field">
+  		<%= f.label :bathrooms %><br />
+    	<%= f.select(:bathrooms, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['7', 7], ['8', 9], ['9', 9], ['10', 10]], nil)) %>
+  </div>
+  	
+  	<div class="field">
+    	<%= f.label :upstairs_bathroom %><br />
+    	<%= f.text_field :upstairs_bathroom %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :downstairs_bathroom %><br />
+    	<%= f.text_field :downstairs_bathroom %>
+  	</div>
+  	
+  	<div class="field">
+  		<%= f.label :wc %><br />
+    	<%= f.select(:wc, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['7', 7], ['8', 9], ['9', 9], ['10', 10]], nil)) %>
+  </div>
+  	
+  	<div class="field">
+    	<%= f.label :upstairs_wc %><br />
+    	<%= f.text_field :upstairs_wc %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :downstairs_wc %><br />
+    	<%= f.text_field :downstairs_wc %>
+  	</div>
+  	
+  	<div class="field">
+  		<%= f.label :central_heating %><br />
+  		<%= f.radio_button(:central_heating, "1") %>
+		<%= f.label(:central_heating_1, "Yes") %>
+		<%= f.radio_button(:central_heating, "0") %>
+		<%= f.label(:central_heating_0, "No") %>
+		<%= f.radio_button(:central_heating, "2") %>
+		<%= f.label(:central_heating_2, "Part") %>
+  	</div>
+  	
+  	<div class="field">
+  		<%= f.label :double_glazed %><br />
+  		<%= f.radio_button(:double_glazed, "1") %>
+		<%= f.label(:double_glazed_1, "Yes") %>
+		<%= f.radio_button(:double_glazed, "0") %>
+		<%= f.label(:double_glazed_0, "No") %>
+		<%= f.radio_button(:double_glazed, "2") %>
+		<%= f.label(:double_glazed_2, "Part") %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :front_garden %><br />
+  		<%= f.radio_button(:front_garden, "1") %>
+		<%= f.label(:front_garden_1, "Yes") %>
+		<%= f.radio_button(:front_garden, "0") %>
+		<%= f.label(:front_garden_0, "No") %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :back_garden %><br />
+  		<%= f.radio_button(:back_garden, "1") %>
+		<%= f.label(:back_garden_1, "Yes") %>
+		<%= f.radio_button(:back_garden, "0") %>
+		<%= f.label(:back_garden_0, "No") %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :drive_way %><br />
+  		<%= f.radio_button(:drive_way, "1") %>
+		<%= f.label(:drive_way_1, "Yes") %>
+		<%= f.radio_button(:drive_way, "0") %>
+		<%= f.label(:drive_way_0, "No") %>
+  	</div>
+  	
+  	<div class="field">
+  		<%= f.label :furnished %><br />
+  		<%= f.radio_button(:furnished, "1") %>
+		<%= f.label(:furnished_1, "Yes") %>
+		<%= f.radio_button(:furnished, "0") %>
+		<%= f.label(:furnished_0, "No") %>
+		<%= f.radio_button(:furnished, "2") %>
+		<%= f.label(:furnished_2, "Part") %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :garage %><br />
+  		<%= f.radio_button(:garage, "1") %>
+		<%= f.label(:garage_1, "Yes") %>
+		<%= f.radio_button(:garage, "0") %>
+		<%= f.label(:garage_0, "No") %>
+  	</div>
+  	
+  	
+  	<div class="field">
+    	<%= f.label :dss_accepted %><br />
+  		<%= f.radio_button(:dss_accepted, "1") %>
+		<%= f.label(:dss_accepted_1, "Yes") %>
+		<%= f.radio_button(:dss_accepted, "0") %>
+		<%= f.label(:dss_accepted_0, "No") %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :keycode %><br />
+    	<%= f.text_field :keycode %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :description %><br />
+    	<%= f.text_field :description %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :price_old %><br />
+    	<%= f.text_field :price_old %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :price_change_date %><br />
+    	<%= f.text_field :price_change_date %>
+  	</div>
+  	
+  	
 	<h2>Address</h2>
-	
 	<%= f.fields_for :address do |builder|%>
 		<%= render 'addresses/address_fields', f: builder %>
 	<% end %>

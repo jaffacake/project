@@ -26,6 +26,7 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @property.build_address
+    #@property.build_landlord
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @property }
@@ -41,7 +42,7 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(params[:property])
-
+    #@property.landlord = params[:landlord] unless params[:landlord].empty?
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }

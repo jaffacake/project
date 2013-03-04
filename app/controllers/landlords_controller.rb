@@ -25,7 +25,8 @@ class LandlordsController < ApplicationController
   # GET /landlords/new.json
   def new
     @landlord = Landlord.new
-
+    @landlord.build_contact_detail
+    @landlord.contact_detail.build_address
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @landlord }
