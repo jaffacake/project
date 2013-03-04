@@ -1,6 +1,9 @@
 Crm::Application.routes.draw do
 
   
+  resources :contact_details
+
+
   resources :landlords
 
 
