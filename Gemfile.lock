@@ -68,7 +68,6 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    ffi (1.4.0)
     ffi (1.4.0-x86-mingw32)
     gherkin (2.11.6-x86-mingw32)
       json (>= 1.7.6)
