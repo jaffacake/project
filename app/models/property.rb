@@ -4,7 +4,9 @@ class Property < ActiveRecord::Base
   belongs_to :address
   belongs_to :estate_agent
   
-  has_many :landlord, :through => :landlords_has_properties
+  #has_many :landlords_has_properties
+  
+  has_and_belongs_to_many :landlord
   has_many :tenant
   
   

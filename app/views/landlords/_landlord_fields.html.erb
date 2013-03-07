@@ -1,0 +1,4 @@
+ <h2>Contact Details</h2>
+  	<%= f.fields_for :contact_detail do |builder|%>
+		<%= render 'contact_details/contact_details_fields', f: builder %>
+	<% end %>

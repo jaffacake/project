@@ -203,7 +203,7 @@
 	
 	<h2>Landlords</h2>
 	<%= f.fields_for :landlord do |builder|%>
-		<%= render 'landlords/form', f: builder %>
+		<%= render 'landlords/landlord_fields', f: builder %>
 	<% end %>
 
   <div class="actions">

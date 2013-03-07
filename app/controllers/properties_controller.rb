@@ -26,7 +26,9 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @property.build_address
-    #@property.build_landlord
+    @property.landlord.build
+    @property.landlord.build_contact_detail
+    @property.contact_detail.build_address
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @property }

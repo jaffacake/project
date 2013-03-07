@@ -1,6 +1,9 @@
 Crm::Application.routes.draw do
 
   
+  resources :landlords_has_properties
+
+
   resources :place_of_works
 
 
