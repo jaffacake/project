@@ -11,9 +11,11 @@ gem 'mysql2'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'jquery-rails'
+  gem 'jquery-ui-rails'
+  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
@@ -21,8 +23,6 @@ group :assets do
 end
 
 gem 'awesome_nested_fields'
-
-gem 'jquery-rails'
 
 gem 'devise'
 
@@ -35,7 +35,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec'
   # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner'
+  #gem 'database_cleaner'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

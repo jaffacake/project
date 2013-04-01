@@ -1,0 +1,17 @@
+<%= form_for(@property_style) do |f| %>
+  <% if @property_style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property_style.errors.count, "error") %> prohibited this property_style from being saved:</h2>
+
+      <ul>
+      <% @property_style.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

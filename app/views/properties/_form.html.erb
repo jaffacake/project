@@ -10,11 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+	
 	<!-- Needs to be date selector -->
 	<div class="field">
     	<%= f.label :available_date %><br />
-    	<%= f.text_field :available_date %>
+    	<%= f.input :available_date, :as => :datepicker %>
   	</div>
 
 	<div class="field">
@@ -37,12 +37,12 @@
     	<%= f.select(:payment_type, options_for_select([['Sale', 0], ['Let', 1]], nil)) %>
   </div>
   	
-  	<!-- Needs to be drop down (From Property Style Model) 
+  	
   	<div class="field">
-    	< f.label :property_style ><br />
-    	< f.text_field :property_style >
+  		<%= f.label :property_style_id %><br />
+		<%= collection_select(:property_style, :id, PropertyStyle.all, :id, :style, :prompt => true) %>
   	</div>
-  	-->
+  
 
   	<div class="field">
   		<%= f.label :tenure %><br />
@@ -205,6 +205,8 @@
 	<%= f.fields_for :landlord do |builder|%>
 		<%= render 'landlords/landlord_fields', f: builder %>
 	<% end %>
+	
+	<%= link_to_add_fields "Add Landlord", f, :landlord %>
 
   <div class="actions">
     <%= f.submit %>

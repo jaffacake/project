@@ -1,6 +1,9 @@
 Crm::Application.routes.draw do
 
   
+  resources :property_styles
+
+
   resources :landlords_has_properties
 
 
