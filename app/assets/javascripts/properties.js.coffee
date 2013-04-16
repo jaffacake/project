@@ -4,4 +4,4 @@
 $ ->
   $("#property_available_date").datepicker({ dateFormat: "dd/mm/yy" });
   $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
-  $('#properties').dataTable({sPaginationType: "full_numbers", bJQueryUI: true, bProcessing: true, bServerSide: true, sAjaxSource: $('#properties').data('source')});
+  $('#properties').dataTable({sPaginationType: "full_numbers", bJQueryUI: true, bProcessing: true, bServerSide: true, sAjaxSource: $('#properties').data('source'), sDom: '<"H"Tfr>t<"F"ip>', oTableTools: { aButtons: [ "copy", "csv", "xls", "pdf",{ sExtends: "collection", sButtonText: "Save", aButtons: [ "csv", "xls", "pdf" ]}]}});

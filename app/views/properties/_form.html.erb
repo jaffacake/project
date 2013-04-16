@@ -1,4 +1,4 @@
-<%= form_for(@property) do |f| %>
+<%= nested_form_for(@property) do |f| %>
   <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -211,12 +211,22 @@
 	<% end %>
 	
 	<h2>Landlords</h2>
-	<%= f.fields_for :landlord do |builder|%>
-		<%= render 'landlords/landlord_fields', f: builder %>
-	<% end %>
+	<%= f.fields_for :landlord %>
 	
-	<%= link_to_add_fields "Add Landlord", f, :landlord %>
-
+	<p><%= f.link_to_add "Add a Landlord", :landlord , :model_object => Landlord.new%></p>
+	<!--
+		<h2>Address</h2>
+	<%#= f.fields_for :address do |builder|%>
+		<%#= render 'addresses/address_fields', f: builder %>
+	<%# end %>
+	
+	<h2>Landlords</h2>
+	<%#= f.fields_for :landlord do |builder|%>
+		<%#= render 'landlords/landlord_fields', f: builder %>
+	<%# end %>
+		
+		<%#= link_to_add_fields "Add Landlord", f, :landlord %>
+-->
   <div class="actions">
     <%= f.submit %>
   </div>

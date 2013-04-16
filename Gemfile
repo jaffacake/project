@@ -24,7 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'awesome_nested_fields'
+gem 'nested_form'
 
 gem 'devise'
 
