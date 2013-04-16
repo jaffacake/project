@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if current_user.admin == 3
+      @users = User.all
+    else
+      @users = User.where("estate_agent_id = ?", current_user.estate_agent_id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +32,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.build_address
+    @user.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -43,6 +48,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

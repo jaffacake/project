@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.11'
 
@@ -14,6 +15,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'jquery-rails'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
   
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -26,7 +28,9 @@ gem 'awesome_nested_fields'
 
 gem 'devise'
 
+gem "simple-navigation"
 
+gem 'will_paginate'
 # This plugin will help with security of nested attributes
 #gem 'strong_parameters'
 

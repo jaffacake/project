@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.nested-fields
-//= requite global
+//= require global
+//= require dataTables/jquery.dataTables
 //= require_tree .

@@ -6,7 +6,7 @@ class Landlord < ActiveRecord::Base
  # has_many :property, :through => :landlords_has_properties
   has_and_belongs_to_many :property
   
-  attr_accessible :contact_detail_attributes
+  attr_accessible :contact_detail_attributes, :estate_agent_id
   
   accepts_nested_attributes_for :contact_detail
   

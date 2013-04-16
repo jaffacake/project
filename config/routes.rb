@@ -1,6 +1,9 @@
 Crm::Application.routes.draw do
 
   
+  resources :tenancy_agreements
+
+
   resources :property_styles
 
 

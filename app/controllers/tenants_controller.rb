@@ -2,7 +2,11 @@ class TenantsController < ApplicationController
   # GET /tenants
   # GET /tenants.json
   def index
-    @tenants = Tenant.all
+    if current_user.admin == 3
+      @tenants = Tenant.all
+    else
+      @tenants = Tenant.where("estate_agent_id = ?", current_user.estate_agent_id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,9 +31,12 @@ class TenantsController < ApplicationController
     @tenant = Tenant.new
     @tenant.build_contact_detail
     @tenant.contact_detail.build_address
+    
     @tenant.build_place_of_work
     @tenant.place_of_work.build_contact_detail
     @tenant.place_of_work.contact_detail.build_address
+    
+    @tenant.estate_agent_id = current_user.estate_agent_id
     #@tenant.place_of_work.build_address
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +53,7 @@ class TenantsController < ApplicationController
   # POST /tenants.json
   def create
     @tenant = Tenant.new(params[:tenant])
-
+    @tenant.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       if @tenant.save
         format.html { redirect_to @tenant, notice: 'Tenant was successfully created.' }

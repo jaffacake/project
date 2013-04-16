@@ -10,11 +10,31 @@
       </ul>
     </div>
   <% end %>
+  
+  	<div class="field">
+  		<%= f.label :sector %><br />
+    	<%= f.select(:sector, options_for_select([['Residential', 0], ['Commercial', 1], ['BMV', 2]], nil)) %>
+  </div>
+  	
+  	<div class="field">
+  		<%= f.label :payment_type %><br />
+    	<%= f.select(:payment_type, options_for_select([['Sale', 0], ['Let', 1]], nil)) %>
+  </div>
+  	
+  	
+  	<div class="field">
+  		<%= f.label :property_style_id %><br />
+		<%= f.collection_select(:property_style_id, PropertyStyle.all, :id, :style, :prompt => true) %>
+  	</div>
 	
-	<!-- Needs to be date selector -->
+	<div class="field">
+    	<%= f.label :reference %><br />
+    	<%= f.text_field :reference %>
+  	</div>
+  	
 	<div class="field">
     	<%= f.label :available_date %><br />
-    	<%= f.input :available_date, :as => :datepicker %>
+    	<%= f.text_field :available_date %>
   	</div>
 
 	<div class="field">
@@ -26,27 +46,16 @@
     	<%= f.label :lease_price %><br />
     	<%= f.text_field :lease_price %>
   	</div>
-  	
-  	<div class="field">
-  		<%= f.label :type %><br />
-    	<%= f.select(:type, options_for_select([['Residential', 0], ['Commercial', 1], ['BMV', 2]], nil)) %>
-  </div>
-  	
-  	<div class="field">
-  		<%= f.label :payment_type %><br />
-    	<%= f.select(:payment_type, options_for_select([['Sale', 0], ['Let', 1]], nil)) %>
-  </div>
-  	
-  	
-  	<div class="field">
-  		<%= f.label :property_style_id %><br />
-		<%= collection_select(:property_style, :id, PropertyStyle.all, :id, :style, :prompt => true) %>
-  	</div>
-  
+
 
   	<div class="field">
   		<%= f.label :tenure %><br />
     	<%= f.select(:tenure, options_for_select([[ 'Freehold', 0], ['Leasehold', 1]], nil)) %>
+  </div>
+  
+  <div class="field">
+  		<%= f.label :occupied %><br />
+    	<%= f.select(:occupied, options_for_select([[ 'No', 0], ['Yes', 1]], nil)) %>
   </div>
   	
   	<div class="field">

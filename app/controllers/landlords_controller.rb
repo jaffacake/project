@@ -2,7 +2,12 @@ class LandlordsController < ApplicationController
   # GET /landlords
   # GET /landlords.json
   def index
-    @landlords = Landlord.all
+    
+    if current_user.admin == 3
+      @landlords = Landlord.all
+    else
+      @landlords = Landlord.where("estate_agent_id = ?", current_user.estate_agent_id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +19,7 @@ class LandlordsController < ApplicationController
   # GET /landlords/1.json
   def show
     @landlord = Landlord.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @landlord }
@@ -27,6 +32,7 @@ class LandlordsController < ApplicationController
     @landlord = Landlord.new
     @landlord.build_contact_detail
     @landlord.contact_detail.build_address
+    @landlord.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @landlord }
@@ -42,7 +48,7 @@ class LandlordsController < ApplicationController
   # POST /landlords.json
   def create
     @landlord = Landlord.new(params[:landlord])
-
+    @landlord.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       if @landlord.save
         format.html { redirect_to @landlord, notice: 'Landlord was successfully created.' }

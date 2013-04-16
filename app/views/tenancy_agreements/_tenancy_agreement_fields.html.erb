@@ -1,0 +1,47 @@
+ <h2>Tenancy Agreement</h2>
+ <fieldset>
+ 	
+ 	<div class="field">
+    	<%= f.label :start_date %><br />
+    	<%= f.text_field :start_date %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :end_date %><br />
+    	<%= f.text_field :end_date %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :payment_date %><br />
+    	<%= f.text_field :payment_date %>
+  	</div>
+  	
+  	<div class="field">
+    	<%= f.label :rental_price %><br />
+    	<%= f.text_field :rental_price %>
+  	</div>
+  	
+  	
+  	
+  	<div class="field">
+  		<%= f.label :active %><br />
+  		<%= f.radio_button(:active, "1") %>
+		<%= f.label(:central_heating_1, "Active") %>
+		<%= f.radio_button(:active, "0") %>
+		<%= f.label(:central_heating_2, "Unactive") %>
+  </div>
+ 	
+ 	<div class="field">
+  		<%= f.label :rent_frequency %><br />
+    	<%= f.select(:rent_frequency, options_for_select([[ 'Monthly', 0], ['Weekly', 1]], nil)) %>
+  </div>
+  
+  <h2>Tenants</h2>
+	<%= f.fields_for :tenant do |builder|%>
+		<%= render 'tenants/tenant_fields', f: builder %>
+	<% end %>
+  
+  <%= link_to_add_fields "Add Tenant", f, :tenant %>
+ 	
+	
+</fieldset>

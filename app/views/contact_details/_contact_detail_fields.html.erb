@@ -45,7 +45,6 @@
   	</div>
 
 <h2>Address</h2>
-<% f.object.build_address %>
 	<%= f.fields_for :address do |builder|%>
 		<%= render 'addresses/address_fields', f: builder %>
 	<% end %>

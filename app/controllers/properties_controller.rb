@@ -2,11 +2,15 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.all
+    if current_user.admin == 3
+      @properties = Property.all
+    else
+      @properties = Property.where("estate_agent_id = ?", current_user.estate_agent_id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @properties }
+      format.json { render json: PropertiesDatatable.new(view_context) }
     end
   end
 
@@ -14,7 +18,6 @@ class PropertiesController < ApplicationController
   # GET /properties/1.json
   def show
     @property = Property.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @property }
@@ -26,7 +29,20 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @property.build_address
-    @property.landlord.build
+    #@property.landlord.build
+    
+    @landlord = @property.landlord.build   
+    @contact_detail = @landlord.build_contact_detail
+    @contact_detail.build_address 
+    
+    @tenancy_agreement = @property.tenancy_agreement.build
+    #@tenant = @tenancy_agreement.tenant.build
+    #@contact_detail2 = @tenant.build_contact_detail
+    #@contact_detail2.build_address
+    #@place_of_work = @tenant.build_place_of_work
+    #@place_of_work_contact_detail = @place_of_work.build_contact_detail
+    #@place_of_work_contact_detail.build_address
+    
     @property.estate_agent_id = current_user.estate_agent_id
     #@property.landlord.build_contact_detail
     #@property.contact_detail.build_address

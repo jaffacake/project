@@ -11,17 +11,7 @@
     </div>
   <% end %>
 
-  <h2>Contact Details</h2>
-  	<%= f.fields_for :contact_detail do |builder|%>
-		<%= render 'contact_details/contact_details_fields', f: builder %>
-	<% end %>
-	
-	
-	
-	<h2>Place Of Work</h2>
-  	<%= f.fields_for :place_of_work do |builder|%>
-		<%= render 'place_of_works/place_of_works_fields', f: builder %>
-	<% end %>
+  <%= render 'tenant_fields', f: f %>
 	
   <div class="actions">
     <%= f.submit %>

@@ -2,8 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
-  $("input.datepicker").each (i) ->
-    $(this).datepicker
-      altFormat: "yy-mm-dd"
-      dateFormat: "mm/dd/yy"
-      altField: $(this).next()
+  $("#property_available_date").datepicker({ dateFormat: "dd/mm/yy" });
+  $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
+  $('#properties').dataTable({sPaginationType: "full_numbers", bJQueryUI: true, bProcessing: true, bServerSide: true, sAjaxSource: $('#properties').data('source')});

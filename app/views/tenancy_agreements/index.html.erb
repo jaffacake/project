@@ -1,0 +1,21 @@
+<h1>Listing tenancy_agreements</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tenancy_agreements.each do |tenancy_agreement| %>
+  <tr>
+    <td><%= link_to 'Show', tenancy_agreement %></td>
+    <td><%= link_to 'Edit', edit_tenancy_agreement_path(tenancy_agreement) %></td>
+    <td><%= link_to 'Destroy', tenancy_agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tenancy agreement', new_tenancy_agreement_path %>
