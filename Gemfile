@@ -34,13 +34,6 @@ gem 'will_paginate'
 # This plugin will help with security of nested attributes
 #gem 'strong_parameters'
 
-
-group :test do
-  gem 'cucumber-rails', :require => false
-  gem 'rspec'
-  # database_cleaner is not required, but highly recommended
-  #gem 'database_cleaner'
-end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

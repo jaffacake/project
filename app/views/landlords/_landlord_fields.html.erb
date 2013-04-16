@@ -1,0 +1,9 @@
+ <h2>Landlord</h2>
+ <h3>Contact Details</h3>
+ <fieldset>
+ 	
+  	<%= f.fields_for :contact_detail do |builder|%>
+		<%= render 'contact_details/contact_detail_fields', f: builder %>
+	<% end %>
+	
+</fieldset>
