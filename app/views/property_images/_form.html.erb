@@ -1,0 +1,24 @@
+<%= form_for(@property_image,:html => {:multipart => true}) do |f| %>
+  <% if @property_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property_image.errors.count, "error") %> prohibited this property_image from being saved:</h2>
+
+      <ul>
+      <% @property_image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

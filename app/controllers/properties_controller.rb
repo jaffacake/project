@@ -29,13 +29,13 @@ class PropertiesController < ApplicationController
   def new
     @property = Property.new
     @property.build_address
-    @property.landlord.build.build_contact_detail.build_address
+    @property.landlords.build.build_contact_detail.build_address
     
     #@landlord = @property.landlord.build
     #@contact_detail = @landlord.build_contact_detail
     #@contact_detail.build_address 
     
-    @tenancy_agreement = @property.tenancy_agreement.build
+    #@tenancy_agreement = @property.tenancy_agreement.build
     #@tenant = @tenancy_agreement.tenant.build
     #@contact_detail2 = @tenant.build_contact_detail
     #@contact_detail2.build_address

@@ -26,11 +26,16 @@ end
 
 gem 'nested_form'
 
+gem 'rmagick'
+
 gem 'devise'
+
+gem 'carrierwave'
 
 gem "simple-navigation"
 
 gem 'will_paginate'
+
 # This plugin will help with security of nested attributes
 #gem 'strong_parameters'
 

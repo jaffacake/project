@@ -21,14 +21,12 @@
     	<%= f.text_field :rental_price %>
   	</div>
   	
-  	
-  	
   	<div class="field">
   		<%= f.label :active %><br />
   		<%= f.radio_button(:active, "1") %>
-		<%= f.label(:central_heating_1, "Active") %>
+		<%= f.label(:active_1, "Active") %>
 		<%= f.radio_button(:active, "0") %>
-		<%= f.label(:central_heating_2, "Unactive") %>
+		<%= f.label(:active_2, "Unactive") %>
   </div>
  	
  	<div class="field">
@@ -37,11 +35,8 @@
   </div>
   
   <h2>Tenants</h2>
-	<%= f.fields_for :tenant do |builder|%>
-		<%= render 'tenants/tenant_fields', f: builder %>
-	<% end %>
-  
-  <%= link_to_add_fields "Add Tenant", f, :tenant %>
+	<%= f.fields_for :tenant %>
+	  <%= f.link_to_add "Add Tenant", :tenant %>
  	
 	
 </fieldset>

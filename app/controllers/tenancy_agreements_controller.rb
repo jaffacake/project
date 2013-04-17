@@ -31,12 +31,17 @@ class TenancyAgreementsController < ApplicationController
     @tenancy_agreement = TenancyAgreement.new
     
     @tenant = @tenancy_agreement.tenant.build
-    @contact_detail = @tenant.build_contact_detail
-    @contact_detail.build_address
     
-    @place_of_work = @tenant.build_place_of_work
-    @contact_detail2 = @place_of_work.build_contact_detail
-    @contact_detail2.build_address
+    @tenancy_agreement.tenant.build.build_place_of_work.build_contact_detail.build_address
+    
+    #@contact_detail = @tenant.build_contact_detail
+    #@contact_detail.build_address
+    
+    @tenancy_agreement.tenant.build.build_place_of_work.build_contact_detail.build_address
+    
+    #@place_of_work = @tenant.build_place_of_work
+    #@contact_detail2 = @place_of_work.build_contact_detail
+    #@contact_detail2.build_address
     
     @tenancy_agreement.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|

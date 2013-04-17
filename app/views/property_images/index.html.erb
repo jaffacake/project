@@ -1,0 +1,24 @@
+<h1>Listing property_images</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @property_images.each do |property_image| %>
+
+  <tr>
+  	<td><%= image_tag property_image.image_url.to_s %></td>
+    <td><%= link_to 'Show', property_image %></td>
+    <td><%= link_to 'Edit', edit_property_image_path(property_image) %></td>
+    <td><%= link_to 'Destroy', property_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Property image', new_property_image_path %>
