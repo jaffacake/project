@@ -1,7 +1,7 @@
-#source 'https://rubygems.org'
-source 'http://rubygems.org'
+source 'https://rubygems.org'
+#source 'http://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,13 +11,16 @@ gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
+
+gem 'bootstrap-sass', '~> 2.3.1.0'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'jquery-rails'
   gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-  gem 'jquery-ui-rails'
-  
+  #gem 'jquery-ui-rails'
+  gem 'bootstrap-datepicker-rails'  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
@@ -25,16 +28,25 @@ group :assets do
 end
 
 gem 'nested_form'
+#gem 'awesome_nested_fields'
 
-gem 'rmagick'
+gem 'wicked'
+
+gem 'rmagick', :require => 'RMagick'
 
 gem 'devise'
 
 gem 'carrierwave'
 
-gem "simple-navigation"
+gem "simple-navigation-bootstrap"
 
 gem 'will_paginate'
+
+gem 'i18n'
+
+gem 'rails-i18n'
+
+gem 'simple_form'
 
 # This plugin will help with security of nested attributes
 #gem 'strong_parameters'

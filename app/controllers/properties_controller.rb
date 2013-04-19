@@ -30,6 +30,7 @@ class PropertiesController < ApplicationController
     @property = Property.new
     @property.build_address
     @property.landlords.build.build_contact_detail.build_address
+    @property.property_images.build
     
     #@landlord = @property.landlord.build
     #@contact_detail = @landlord.build_contact_detail
@@ -62,7 +63,6 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(params[:property])
     @property.estate_agent_id = current_user.estate_agent_id
-    @property.landlord_id = @property.landlord.object_id
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }

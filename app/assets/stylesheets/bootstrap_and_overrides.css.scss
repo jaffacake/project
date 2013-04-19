@@ -1,0 +1,40 @@
+@import "bootstrap";
+body { padding-top: 100px; }
+@import "bootstrap-responsive";
+
+.custom-form input[class*="span"] {
+    width: 146px;
+}
+
+.center {
+    text-align:center;
+}
+
+@media (max-width: 767px) {
+    .custom-form input[class*="span"], select[class*="span"] {
+        margin-bottom:10px;
+        width:100%;       
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .custom-form.span8 {
+        width:548px;
+    }
+} 
+
+.alert {
+    background-color: #FCF8E3;
+    border: 1px solid #FBEED5;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 20px;
+    margin-top:20px;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.content{
+    background-color: #ffffff;
+    padding: 20px;
+}
+

@@ -1,46 +1,22 @@
 Crm::Application.routes.draw do
 
-  
-  resources :property_images
+  scope "/admin" do
+    resources :property_images, :tenancy_agreements, :property_styles, :place_of_works,
+    :contact_details, :landlords, :tenants, :properties, :estate_agents, :addresses,
+    :users
+    devise_for :users, :path_prefix => 'admin/login'
+  end
 
-
-  resources :tenancy_agreements
-
-
-  resources :property_styles
-
-
-  resources :landlords_has_properties
-
-
-  resources :place_of_works
-
-
-  resources :contact_details
-
-
-  resources :landlords
-
-
-  resources :tenants
-
-
-  resources :properties
-
-
-  resources :estate_agents
-  
-    get '', to: 'dashboard#index', as: '/'
-    resources :addresses
-
-
+    get '/admin', to: 'dashboard#index', as: '/admin'
   #
-  devise_for :users, :path_prefix => 'my'
-  resources :users
+  
+  authenticated :user do
+    root :to => redirect("/admin")
+  end
    # The priority is based upon order of creation:
   # first created -> highest priority.
   
-  root :to => 'dashboard#index'
+  root :to => 'front_ends#index'
 
   #resources :tweet, :controller => "tweet"
   

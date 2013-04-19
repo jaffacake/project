@@ -10,14 +10,9 @@
       </ul>
     </div>
   <% end %>
-	<p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.file_field :image %>
-  </p>
 
+	<%= render 'property_image_fields', f: f %>
+	
   <div class="actions">
     <%= f.submit %>
   </div>

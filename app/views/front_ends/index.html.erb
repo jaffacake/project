@@ -1,0 +1,16 @@
+<h1>Front_End#index</h1>
+<p>Find me in app/views/front_end/index.html.erb</p>
+<% @estate_agent.each do |estate_agent| %>
+<li><%= estate_agent.name -%> - <%= estate_agent.address.address_line1 -%></li>
+<table>
+  <tr>
+  	<td><%= estate_agent.name %></td>
+  	<td><%= estate_agent.address.address_town %></td>
+  	<td><%= estate_agent.license_expiry_date %></td>
+  	<td><%= link_to 'Show', estate_agent %> | <%= link_to 'Edit', edit_estate_agent_path(estate_agent) %> | <%= link_to 'Destroy', estate_agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</table>
+<% end %>
+<a href="/estate_agents">Estate Agents</a>
+
+<a href="/addresses">Addresses</a>

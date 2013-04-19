@@ -17,7 +17,7 @@ class Property < ActiveRecord::Base
   :upstairs_bathroom, :downstairs_bathroom, :wc, :upstairs_wc, :downstairs_wc, :keycode, :description, :price_old, :price_change_date, 
   :central_heating, :double_glazed, :front_garden, :back_garden, :drive_way, :furnished, :garage, :dss_accepted
   
-  accepts_nested_attributes_for :landlords, :address, :estate_agent, :property_style#, :tenancy_agreements
+  accepts_nested_attributes_for :property_images,:landlords, :address, :estate_agent, :property_style#, :tenancy_agreements
   
   validates_presence_of :property_style_id
 end

@@ -11,7 +11,7 @@
 <% @property_images.each do |property_image| %>
 
   <tr>
-  	<td><%= image_tag property_image.image_url.to_s %></td>
+  	<td><%= link_to image_tag(property_image.image_url(:thumb).to_s), property_image.image_url.to_s %></td>
     <td><%= link_to 'Show', property_image %></td>
     <td><%= link_to 'Edit', edit_property_image_path(property_image) %></td>
     <td><%= link_to 'Destroy', property_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   belongs_to :estate_agent
   
   validates_presence_of :username, :on => :create, :message => "can't be blank"
+  
   accepts_nested_attributes_for :address, :allow_destroy => :true
  
 end
