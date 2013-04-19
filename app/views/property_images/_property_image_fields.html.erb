@@ -1,12 +1,13 @@
-		<p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.file_field :image %>
-  </p>
-  <%= f.hidden_field :image_cache %>
-<p>
-<%= f.label :remote_image_url, "or image URL" %>
-    <%= f.text_field :remote_image_url %>
-    </p>
+<div class="nested-fields">
+			
+    	<%= f.input :name %>
+    	
+    	<%= f.file_field :image %>
+    	
+  		<%= f.hidden_field :image_cache %>
+	   
+	   <%= f.input :remote_image_url %>
+
+<%= link_to_remove_association "Remove Image", f %>
+
+</div>

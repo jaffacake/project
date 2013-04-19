@@ -1,4 +1,4 @@
-<%= simple_nested_form_for @property, html: { class: 'form-stacked' } do |f| %>
+<%= simple_form_for @property, html: { class: 'form-stacked' } do |f| %>
   <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-  test
   	<div class="row-fluid">
   		<div class="span4">
     		<%= f.input :sector, collection: [['Residential', 0], ['Commercial', 1], ['BMV', 2]], prompt: "Select Property Sector" %>
@@ -79,20 +78,26 @@
     	<%= f.input :price_old %>
   	
     	<%= f.input :price_change_date, as: :string  %>
-  	
+  		
+  		
+  		
   		<h2>Images</h2>
-			<%= f.fields_for :property_images %>
+			<%= f.simple_fields_for :property_images  do |task|
+      		render 'property_images/property_image_fields', :f => task 
+      	end %>
 
-		<p><%= f.link_to_add "Add more images", :property_images %></p>  
+		<p><%= link_to_add_association 'Add Image', f, :property_images, :partial => 'property_images/property_image_fields' %></p>  
 	
 	<h2>Address</h2>
-	<%= f.fields_for :address do |builder|%>
+	<%= f.simple_fields_for :address do |builder|%>
 		<%= render 'addresses/address_fields', f: builder %>
 	<% end %>
 	
 	<h2>Landlords</h2>
-	<%= f.fields_for :landlords %>
-	<p><%= f.link_to_add "Add more Landlords", :landlords %></p>  
+	<%= f.simple_fields_for :landlords  do |task|
+      		render 'landlords/landlord_fields', :f => task 
+      	end %>
+	<p><%= link_to_add_association 'Add Landlord', f, :landlords, :partial => 'landlords/landlord_fields' %></p> 
 	<!--
 		<h2>Address</h2>
 	<%#= f.fields_for :address do |builder|%>

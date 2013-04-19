@@ -3,10 +3,10 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
   $("#tenancy_agreement_start_date").datepicker({ dateFormat: "dd/mm/yy" });
-  $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
+  #$('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
   
   $("#tenancy_agreement_end_date").datepicker({ dateFormat: "dd/mm/yy" });
-  $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
+  #$('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
   
   $("#tenancy_agreement_payment_date").datepicker({ dateFormat: "dd/mm/yy" });
-  $('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');
+  #$('#ui-datepicker-div').removeClass('ui-helper-hidden-accessible');

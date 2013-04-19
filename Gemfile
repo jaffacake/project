@@ -12,9 +12,10 @@ gem 'mysql2'
 # Gems used only for assets and not required
 # in production environments by default.
 
+gem 'sass-rails'
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'bootstrap-datepicker-rails'  
-gem 'sass-rails'
+
 group :assets do
 
   gem 'coffee-rails'
@@ -28,8 +29,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'nested_form'
+#gem 'nested_form'
 #gem 'awesome_nested_fields'
+gem 'cocoon'
 
 gem 'wicked'
 

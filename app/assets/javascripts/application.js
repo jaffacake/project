@@ -11,23 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_nested_form
+//= require jquery_ujs
+//= require cocoon
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require_tree .
 
-$(function () {
-    $(window).bind(“resize”, formFixer);
-});
-
-    function formFixer( e ) {
-
-    if($(window).width()<=480){
-        $(‘form’).removeClass(‘form-horizontal’);
-    }
-    else{
-        $(‘form’).addClass(‘form-horizontal’);
-    }
-}
