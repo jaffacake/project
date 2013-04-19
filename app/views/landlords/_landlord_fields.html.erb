@@ -1,7 +1,7 @@
 <div class="nested-fields">
  <h2>Landlord</h2>
  <h3>Contact Details</h3>
- 	
+ 	<% f.object.build_contact_detail.build_address %>
   	<%= f.simple_fields_for :contact_detail do |builder|%>
 		<%= render 'contact_details/contact_detail_fields', f: builder %>
 	<% end %>
