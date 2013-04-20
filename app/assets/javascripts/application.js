@@ -15,7 +15,12 @@
 //= require cocoon
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
-//= require bootstrap
+//= require bootstrap-alert
+//= require bootstrap-tooltip
+//= require bootstrap-transition
+//= require bootstrap-button
+//= require bootstrap-modal
 //= require bootstrap-datepicker
+//= require bootstrap-wizard
+//= require jasny-bootstrap
 //= require_tree .
-

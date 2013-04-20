@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /properties
   # GET /properties.json
   def index

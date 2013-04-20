@@ -1,4 +1,7 @@
 class EstateAgent < ActiveRecord::Base
+  extend FriendlyId
+  
+  friendly_id :name, use: :slugged
   # attr_accessible :title, :body
   belongs_to :address
   has_many :user

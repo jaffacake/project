@@ -30,8 +30,8 @@ class LandlordsController < ApplicationController
   # GET /landlords/new.json
   def new
     @landlord = Landlord.new
-    @landlord.build_contact_detail
-    @landlord.contact_detail.build_address
+    #@landlord.build_contact_detail
+    #@landlord.contact_detail.build_address
     @landlord.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       format.html # new.html.erb
