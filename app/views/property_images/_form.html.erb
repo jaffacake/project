@@ -1,4 +1,4 @@
-<%= form_for(@property_image,:html => {:multipart => true}) do |f| %>
+<%= simple_form_for(@property_image,:html => {:multipart => true}) do |f| %>
   <% if @property_image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property_image.errors.count, "error") %> prohibited this property_image from being saved:</h2>

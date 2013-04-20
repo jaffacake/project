@@ -1,0 +1,19 @@
+<%= simple_form_for(@estate_agents_image,:html => {:multipart => true}) do |f| %>
+  <% if @estate_agents_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estate_agents_image.errors.count, "error") %> prohibited this estate agent image from being saved:</h2>
+
+      <ul>
+      <% @estate_agents_image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<%= render 'estate_agents_image_fields', f: f %>
+	
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

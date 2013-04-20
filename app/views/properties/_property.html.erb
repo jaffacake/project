@@ -2,7 +2,7 @@
 	<div class="span2"></div>
 	<div class="span8">
 		  <div class="row-fluid">
-		  	<div class="span2">
+		  	<div class="span3">
 	        	<% if property.property_images.any?%>
 	        		<%= image_tag property.property_images.first.image_url(:thumb).to_s, :class => "img-polaroid" %>
 	        	<% else %>
@@ -10,8 +10,8 @@
 	        	<% end %>
         	</div>
       
-      <div class="span5">
-        <table class="table">
+      <div class="span8">
+        <table class="table-striped">
           <tbody>            
             <tr>
               <td valign="top" height="30" align="left">Price: </td>

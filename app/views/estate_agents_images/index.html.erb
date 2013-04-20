@@ -1,0 +1,24 @@
+<h1>Listing estate_agents_image</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estate_agents_images.each do |estate_agents_image| %>
+
+  <tr>
+  	<td><%= link_to image_tag(estate_agents_image.image_url(:thumb).to_s), estate_agents_image.image_url.to_s %></td>
+    <td><%= link_to 'Show', estate_agents_image %></td>
+    <td><%= link_to 'Edit', edit_estate_agents_image_path(estate_agents_image) %></td>
+    <td><%= link_to 'Destroy', estate_agents_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Estate Agent image', new_estate_agents_image_path %>

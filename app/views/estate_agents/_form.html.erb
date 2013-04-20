@@ -1,40 +1,56 @@
-<%= form_for(@estate_agent) do |f| %>
-  <% if @estate_agent.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@estate_agent.errors.count, "error") %> prohibited this estate_agent from being saved:</h2>
+<div class="row-fluid">
+	<div class="span4">
+			<%= simple_form_for(@estate_agent) do |f| %>
+		  <% if @estate_agent.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@estate_agent.errors.count, "error") %> prohibited this estate_agent from being saved:</h2>
+		
+		      <ul>
+		      <% @estate_agent.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		
+		  	<%= f.input :name %>
+		  	<%= f.input :license_expiry_date, as: :string, input_html: { data: 'datepicker' } %>
+		  <h2>Contact Details</h2>
+			
+			<%= f.fields_for :contact_detail do |builder|%>
+				<%= render 'contact_details/contact_detail_fields', f: builder %>
+			<% end %>
+			
+		   
+			</div>
+			<div class="span4">
+			<h2>Users</h2>
+			
+			<%= f.simple_fields_for :user do |builder2|%>
+				<%= render 'users/user_fields', f: builder2 %>
+			<% end %>
+			
+			<%= link_to_add_association 'Add a User', f, :user, :partial => 'users/user_fields', :class => "btn btn-small btn-primary" %>
+			
+		
+		    
+		   </div>
+		   <div class="span4">
+		  				<div id="estate_agents_images">
+			    			<h2>Images</h2>
+							<%= f.simple_fields_for :estate_agents_images  do |image|%>
+				      		<% render 'estate_agents_images/estate_agents_image_fields', f: image %> 
+				      	<% end %>
+							<br />
+							<%= link_to_add_association 'Add an Image', f, :estate_agents_images, :partial => 'estate_agents_images/estate_agents_image_fields', :class => "btn btn-small btn-primary" %>
+						</div>
+						
+					<br />	<br />
+					
+		    <%= f.submit :class => "btn btn-primary"%>
+		    <%= link_to 'Back', estate_agents_path,:class => "btn btn-danger" %>
+		<% end %>
+		</div>
+		</div>
 
-      <ul>
-      <% @estate_agent.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  
-  <h2>Address</h2>
-	
-	<%= f.fields_for :address do |builder|%>
-		<%= render 'addresses/address_fields', f: builder %>
-	<% end %>
-	
-	<h2>Users</h2>
-	
-	<%= f.fields_for :user do |builder2|%>
-		<%= render 'users/user_fields', f: builder2 %>
-	<% end %>
-	
-<h2>License</h2>	
-	<div class="field">
-    <%= f.label :license_expiry_date %><br />
-    <%= f.text_field :license_expiry_date %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

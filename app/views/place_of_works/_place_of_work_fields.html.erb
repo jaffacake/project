@@ -1,13 +1,7 @@
   	
-  	<div class="field">
-    	<%= f.label :contact_name %><br />
-    	<%= f.text_field :contact_name %>
-  	</div>
+    	<%= f.input :contact_name %>
   	
-  	<div class="field">
-    	<%= f.label :company_name %><br />
-    	<%= f.text_field :company_name %>
-  	</div>
+    	<%= f.input :company_name %>
 
 <h2>Contact Details</h2>
 	<%= f.fields_for :contact_detail do |builder|%>

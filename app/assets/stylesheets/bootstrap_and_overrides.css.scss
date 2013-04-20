@@ -83,3 +83,24 @@ body { padding-top: 100px; }
 .spacer2 {
     margin-top: 40px; /* define margin as you see fit */
 }
+
+.center { float: none; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 980px) {
+.form-horizontal .control-group > label {
+float: none;
+width: auto;
+padding-top: 0;
+text-align: left;
+}
+.form-horizontal .controls {
+margin-left: 0;
+}
+.form-horizontal .control-list {
+padding-top: 0;
+}
+.form-horizontal .form-actions {
+padding-left: 10px;
+padding-right: 10px;
+}
+}

@@ -1,4 +1,4 @@
-<%= form_for(@place_of_work) do |f| %>
+<%= simple_form_for(@place_of_work) do |f| %>
   <% if @place_of_work.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@place_of_work.errors.count, "error") %> prohibited this place_of_work from being saved:</h2>

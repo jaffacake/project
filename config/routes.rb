@@ -3,7 +3,7 @@ Crm::Application.routes.draw do
   scope "/admin" do
     resources :property_images, :tenancy_agreements, :property_styles, :place_of_works,
     :contact_details, :landlords, :tenants, :properties, :estate_agents, :addresses,
-    :users
+    :users, :estate_agents_images
     devise_for :users, :path_prefix => 'admin/login'
   end
 

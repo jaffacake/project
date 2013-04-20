@@ -50,31 +50,34 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>. 
     #
     if user_signed_in?
-      primary.item :key_1, "Dashboard", root_path
-      primary.item :key_2, 'Properties', properties_path do |types|
-        types.item :key_2_1, 'Sold Properties', properties_path
-        types.item :key_2_2, 'Let Properties', properties_path
-        types.item :key_2_3, 'Add New Property', new_property_path
-        
+      primary.item :dashboard, "Dashboard", root_path
+      
+      primary.item :properties, 'Properties', properties_path do |types|
+        types.item :sold_properties, 'Sold Properties', properties_path
+        types.item :let_properties, 'Let Properties', properties_path
+        types.item :new_property, 'Add New Property', new_property_path
       end
 
+
     # Add an item which has a sub navigation (same params, but with block)
-      primary.item :key_3, 'Tenants', tenants_path
-      if user_signed_in? && current_user.admin == 3
-        primary.item :key_4, 'Users', users_path
+      primary.item :tenants, 'Tenants', tenants_path
+      if current_user.admin == 2
+          primary.item :users, 'Users', users_path
+      end
+      if current_user.admin == 3
+          primary.item :estate_agents, 'Estate Agents', estate_agents_path
       end
     
     
     
-      primary.item :key_5, 'Landlords', landlords_path
+      primary.item :landlords, 'Landlords', landlords_path
       # Add an item to the sub navigation (same params again)
       #sub_nav.item :key_2_1, 'name', properties_path
-   
-            primary.item :key_5, 'Edit Profile', edit_user_path(current_user)
-            primary.item :key_6, 'Logout', destroy_user_session_path, method: :delete 
-           
-    else
-      primary.item :key_7, 'Login', new_user_session_path 
+
+        primary.item :edit_profile, 'Edit Profile', edit_user_path(current_user)
+        primary.item :logout, 'Logout', destroy_user_session_path, method: :delete 
+     else
+        primary.item :login, 'Login', new_user_session_path 
     end
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.

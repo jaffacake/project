@@ -10,7 +10,7 @@
 	<% @estate_agents.each do |estate_agent| %>
 	  <tr>
 	  	<td><%= estate_agent.name %></td>
-	  	<td><%= estate_agent.address.address_town %></td>
+	  	<td><%= estate_agent.contact_detail.address.address_town %></td>
 	  	<td><%= estate_agent.license_expiry_date %></td>
 	  	<td><%= link_to 'Show', estate_agent %> | <%= link_to 'Edit', edit_estate_agent_path(estate_agent) %> | <%= link_to 'Destroy', estate_agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	  </tr>

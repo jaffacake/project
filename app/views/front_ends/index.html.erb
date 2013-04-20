@@ -1,16 +1,30 @@
-<h1>Front_End#index</h1>
-<p>Find me in app/views/front_end/index.html.erb</p>
+<div class="row-fluid">
+	<div class="span12">
+<h1>Estate Agents</h1>
 <% @estate_agent.each do |estate_agent| %>
 
-<li><%= estate_agent.name -%> - <%= estate_agent.address.address_town -%></li>
-<table>
-  <tr>
-  	<td><%= estate_agent.name %></td>
-  	<td><%= estate_agent.address.address_town %></td>
-  	<td><%= link_to 'Show', estate_agent %> | <%= link_to 'Edit', edit_estate_agent_path(estate_agent) %> | <%= link_to 'Destroy', estate_agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-</table>
+	<div class="row-fluid spacer">
+		<div class="span3">
+			<% if estate_agent.estate_agents_images.any?%>
+	        		<%= image_tag estate_agent.estate_agents_images.first.image_url(:thumb).to_s, :class => "img-polaroid" %>
+	        	<% else %>
+	        		<%= image_tag "/assets/no-image.jpg", :class => "img-polaroid"%>
+	        	<% end %>
+		</div>
+		<div class="span9">
+			<h2><%= estate_agent.name %></h2><br />
+			<%= estate_agent.contact_detail.address.address_line1 %>
+			<%= estate_agent.contact_detail.address.address_line2 %>
+			<%= estate_agent.contact_detail.address.address_town %>
+			<%= estate_agent.contact_detail.address.address_city %>
+			<%= estate_agent.contact_detail.address.address_postcode %>
+			<%= estate_agent.contact_detail.landline_number %>
+			<%= estate_agent.contact_detail.email %>
+			<%= link_to 'View Properties', estate_agent.name, :class => "btn btn-primary" %>
+		</div>
+	</div>
 <% end %>
 
-<p><%= link_to "Advanced Search", '/searches/new' %></p>
+	</div>
 
+</div>

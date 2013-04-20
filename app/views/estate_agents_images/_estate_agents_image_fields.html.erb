@@ -1,0 +1,19 @@
+<div class="nested-fields">
+			
+    	<%= f.input :name %>
+    	
+  		<%= f.input :image_cache, as: :hidden %>
+	   
+	   <div class="fileupload fileupload-new" data-provides="fileupload">
+<div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>
+<div>
+<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.input_field :image, as: :file %></span>
+<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+</div>
+</div>
+
+
+<%= link_to_remove_association "Remove Image", f, :class => "btn btn-small btn-danger" %>
+
+
+</div>

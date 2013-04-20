@@ -1,4 +1,4 @@
-<%= form_for(@property_style) do |f| %>
+<%= simple_form_for(@property_style) do |f| %>
   <% if @property_style.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property_style.errors.count, "error") %> prohibited this property_style from being saved:</h2>
