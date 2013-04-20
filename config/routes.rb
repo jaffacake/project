@@ -15,7 +15,13 @@ Crm::Application.routes.draw do
   end
    # The priority is based upon order of creation:
   # first created -> highest priority.
+  #resources :front_end
+
+  match '/:id' => 'front_ends#show'
+  match '/:id/:controller/new' => 'searches#new'
   
+  match "/:id/:id2" => 'front_ends#details'
+  #resources :searches
   root :to => 'front_ends#index'
 
   #resources :tweet, :controller => "tweet"
