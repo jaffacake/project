@@ -14,7 +14,7 @@ gem 'mysql2'
 
 gem 'sass-rails'
 gem 'bootstrap-sass', '~> 2.3.1.0'
-gem 'bootstrap-datepicker-rails'  
+gem 'bootstrap-datepicker-rails'
 
 group :assets do
 
@@ -29,6 +29,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'friendly_id'
 #gem 'nested_form'
 #gem 'awesome_nested_fields'
 gem 'cocoon'
