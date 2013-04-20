@@ -22,5 +22,6 @@
 //= require bootstrap-modal
 //= require bootstrap-datepicker
 //= require bootstrap-wizard
+//= require bootstrap-lightbox
 //= require jasny-bootstrap
 //= require_tree .

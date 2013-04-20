@@ -1,1 +1,119 @@
-<%= @property.first.reference %><tEST!>
+<div class="row-fluid">
+	<div class="span2">
+	</div>
+	<div class="span8">
+		
+           <h1>Property Details</h1>
+				
+				<div class="row-fluid">
+					<div class="span8">
+            <table class="table">
+            	
+                <tbody>
+
+                  <tr>
+                    <td valign="top" align="left"><span class="hdrproduct">Property Ref:</span></td>
+                    <td valign="top" align="left" style="color:#c3031f; font-weight:bold; font-size:14px;"><%= @property.first.reference %></td>
+                  </tr>
+                  <tr>
+                    <td width="31%" valign="top" align="left"><span class="hdrproduct">Price:</span></td>
+                    <td width="69%" valign="top" align="left"><%= number_to_currency(@property.first.price, :unit => "&pound;", :precision => 0) %><br></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="left"><span class="hdrproduct">Property Type:</span></td>
+                    <td valign="top" align="left"><%= (@property.first.payment_type == 1) ? "To Let" : "For Sale" %>,<br/><%=@property.first.property_style.style%></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="left"><span class="hdrproduct">Location:</span></td>
+                    <td valign="top" align="left"> <%=@property.first.address.address_town%><br></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="left"><span class="hdrproduct">Bedrooms:</span></td>
+                    <td valign="top" align="left"><%=@property.first.bedrooms%></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="left"><span class="hdrproduct">Furnished:</span></td>
+                    <td valign="top" align="left"><%= (@property.first.furnished == 2) ? "Part" : (@property.first.furnished == 1) ? "Yes" : "No" %></td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="left"><span class="hdrproduct">Available Date:</span></td>
+                    <td valign="top" align="left"><%= @property.first.available_date %></td>
+                  </tr>
+                  
+             	</tbody>
+             </table>
+                      </div>
+                      </div>
+								<div class="row-fluid">
+                              <div class="span4">   
+                                                                                  
+													<a data-toggle="lightbox" href="#demoLightboxCarousel"><%= image_tag @property.first.property_images.first.image_url(:thumb).to_s, :class => "img-polaroid" %> <br />Click for more images</a></p>
+													
+														<div id="demoLightboxCarousel" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+															 <div class='lightbox-header'>
+																<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
+															</div>
+															<div class='lightbox-content'>
+																<!-- <img src="http://jbutz.github.com/bootstrap-lightbox/assets/img/large.png">  -->
+																<div id="myCarousel" class="carousel slide">
+																	<!-- Carousel items -->
+																	<div class="carousel-inner">
+																		<% @property.first.property_images.each_with_index do |image,index| %>
+																		
+																		<div class="item<%= (index==0) ? " active" : ""%>"><%= image_tag image.image_url.to_s %></div>
+																		<% end %>
+																	</div>
+																	<!-- Carousel nav -->
+																	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+																	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+																</div>
+															</div>
+														</div>
+														<script>
+															$('.carousel').carousel();
+														</script>
+
+                                       </div>
+                                           <div class="span4">  
+                                                     	<table>  
+                                                     		<tr>                     
+                                          <td>Central Heating: </td>
+                                        <td><img src="<%= (@property.first.central_heating == 1) ? "/assets/tick.png" : "/assets/cross.png"%>" class="features_image"></td>
+                                      
+                                                                              
+                                          <td>Double Glazed: </td>
+                                        <td><img src="<%= (@property.first.double_glazed == 1) ? "/assets/tick.png" : "/assets/cross.png"%>" class="features_image"></td>
+                                      
+                                      </tr>                                        
+                                          <tr>
+                                          	<td>Front Garden: </td>
+                                        <td><img src="<%= (@property.first.front_garden == 1) ? "/assets/tick.png" : "/assets/cross.png"%>" class="features_image"></td>
+                                      
+                                                                              
+                                          <td>Rear Garden: </td>
+                                        <td><img src="<%= (@property.first.back_garden == 1) ? "/assets/tick.png" : "/assets/cross.png"%>" class="features_image"></td>
+                                      
+                                      </tr>                                        
+                                          <tr>
+                                          	<td>Drive Way: </td>
+                                        		<td><img src="<%= (@property.first.drive_way == 1) ? "/assets/tick.png" : "/assets/cross.png"%>" class="features_image"></td>
+                                      
+                                                                              
+                                          	<td>Garage: </td>
+                                        		<td><img src="<%= (@property.first.garage == 1) ? "/assets/tick.png" : "/assets/cross.png"%>" class="features_image"></td>
+                                      
+                                     		</tr>  
+                                     		</table>                                      
+                         					</div>
+                         					</div>
+                         					
+
+											<div class="row-fluid spacer">
+												<div class="span8">
+					                          <font color="cc0017"><b><%= @property.first.address.address_line1%></b></font><br><div align="justify"><%= @property.first.description %></div> 
+					                          
+					                          </div>
+					    </div>
+                <div class="span2">
+	</div>
+</div>

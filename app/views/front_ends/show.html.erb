@@ -1,8 +1,11 @@
-<h1>Front_End#show</h1>
-<p>Find me in app/views/front_end/show.html.erb</p>
-
-
-<%= render(@properties) || 'There are no properties available.'%>
+<div class="row-fluid">
+	 <div class="span2"></div>
+	 <div class="span8">
+	 	<%= @estate_agent.name%>
+	</div>
+	<div class="span2"></div>
+</div>
+		<%= render(@properties) || 'There are no properties available.'%>
 
 
 
