@@ -51,6 +51,8 @@ gem 'i18n'
 gem 'rails-i18n'
 
 gem 'simple_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 
 # This plugin will help with security of nested attributes
 #gem 'strong_parameters'
