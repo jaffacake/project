@@ -48,7 +48,7 @@
                               <div class="span4">   
                                                                                   
 													<a data-toggle="lightbox" href="#demoLightboxCarousel">
-														<% if @property.first.property_images.first.any?%>
+														<% if @property.first.property_images.any?%>
 									        				<%= image_tag @property.first.property_images.first.image_url(:thumb).to_s, :class => "img-polaroid" %>
 									        			<% else %>
 									        				<%= image_tag "/assets/no-image.jpg", :class => "img-polaroid"%>
@@ -64,7 +64,7 @@
 																<div id="myCarousel" class="carousel slide">
 																	<!-- Carousel items -->
 																	<div class="carousel-inner">
-																		<% if @property.first.property_images.first.any?%>
+																		<% if @property.first.property_images.any?%>
 																			<% @property.first.property_images.each_with_index do |image,index| %>
 																			
 																			<div class="item<%= (index==0) ? " active" : ""%>"><%= image_tag image.image_url.to_s %></div>
