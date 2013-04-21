@@ -14,12 +14,19 @@
 		<div class="span9">
 			<h2><%= estate_agent.name %></h2><br />
 			<%= estate_agent.contact_detail.address.address_line1 %>
+			<br />
 			<%= estate_agent.contact_detail.address.address_line2 %>
+			<br />
 			<%= estate_agent.contact_detail.address.address_town %>
+			<br />
 			<%= estate_agent.contact_detail.address.address_city %>
+			<br />
 			<%= estate_agent.contact_detail.address.address_postcode %>
+			<br />
 			<%= estate_agent.contact_detail.landline_number %>
+			<br />
 			<%= estate_agent.contact_detail.email %>
+			<br />
 			<%= link_to 'View Properties', estate_agent.name, :class => "btn btn-primary" %>
 		</div>
 	</div>
