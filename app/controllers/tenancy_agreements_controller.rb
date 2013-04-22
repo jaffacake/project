@@ -30,14 +30,14 @@ class TenancyAgreementsController < ApplicationController
   def new
     @tenancy_agreement = TenancyAgreement.new
     
-    @tenant = @tenancy_agreement.tenant.build
+    @tenants = @tenancy_agreement.tenants.build
     
-    @tenancy_agreement.tenant.build.build_place_of_work.build_contact_detail.build_address
+    @tenants.build_place_of_work.build_contact_detail.build_address
     
-    #@contact_detail = @tenant.build_contact_detail
+    @tenants.build_contact_detail.build_address
     #@contact_detail.build_address
     
-    @tenancy_agreement.tenant.build.build_place_of_work.build_contact_detail.build_address
+    #@tenancy_agreement.tenant.build.build_place_of_work.build_contact_detail.build_address
     
     #@place_of_work = @tenant.build_place_of_work
     #@contact_detail2 = @place_of_work.build_contact_detail

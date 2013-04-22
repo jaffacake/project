@@ -53,7 +53,7 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :dashboard, "Dashboard", root_path
       
       primary.item :properties, 'Properties', properties_path do |types|
-        types.item :sold_properties, 'Sold Properties', properties_path
+        types.item :sold_properties, 'Sale Properties', properties_path
         types.item :let_properties, 'Let Properties', properties_path
         types.item :new_property, 'Add New Property', new_property_path
       end

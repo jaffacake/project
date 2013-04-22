@@ -32,6 +32,7 @@ class PropertiesController < ApplicationController
     @property.build_address
     @property.landlords.build.build_contact_detail.build_address
     @property.property_images.build
+    @property.tenancy_agreements.build.tenants.build
     
     #@landlord = @property.landlord.build
     #@contact_detail = @landlord.build_contact_detail

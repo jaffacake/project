@@ -1,42 +1,25 @@
  <h2>Tenancy Agreement</h2>
- <fieldset>
  	
- 	<div class="field">
-    	<%= f.label :start_date %><br />
-    	<%= f.text_field :start_date %>
-  	</div>
+    	<%= f.input :start_date, as: :string, input_html: { data: 'datepicker' } %>
   	
-  	<div class="field">
-    	<%= f.label :end_date %><br />
-    	<%= f.text_field :end_date %>
-  	</div>
+    	<%= f.input :end_date, as: :string, input_html: { data: 'datepicker' } %>
   	
-  	<div class="field">
-    	<%= f.label :payment_date %><br />
-    	<%= f.text_field :payment_date %>
-  	</div>
+    	<%= f.input :payment_date, as: :string, input_html: { data: 'datepicker' } %>
   	
-  	<div class="field">
-    	<%= f.label :rental_price %><br />
-    	<%= f.text_field :rental_price %>
-  	</div>
+    	<%= f.input :rental_price %>
   	
-  	<div class="field">
-  		<%= f.label :active %><br />
-  		<%= f.radio_button(:active, "1") %>
-		<%= f.label(:active_1, "Active") %>
-		<%= f.radio_button(:active, "0") %>
-		<%= f.label(:active_2, "Unactive") %>
-  </div>
+  		<%= f.input :active, collection: [[1, 'Active'] ,[0, 'Unactive']], as: :radio_buttons, item_wrapper_class: 'inline', label_method: :last, value_method: :first  %>
+  		
+  		<%= f.input :rent_frequency, collection: [['Monthly', 0], ['Weekly', 1]], prompt: "Select Rent Frequency" %>
  	
- 	<div class="field">
-  		<%= f.label :rent_frequency %><br />
-    	<%= f.select(:rent_frequency, options_for_select([[ 'Monthly', 0], ['Weekly', 1]], nil)) %>
-  </div>
   
-  <h2>Tenants</h2>
-	<%= f.fields_for :tenant %>
-	  <%= f.link_to_add "Add Tenant", :tenant %>
- 	
-	
-</fieldset>
+ 	<h2>Tenants</h2>
+	<div id="tenants">
+			<%= f.simple_fields_for :tenants  do |task|
+		      		render 'tenants/tenant_fields', :f => task 
+		      	end %>
+		      	<br/>
+		     <div class="links">
+			<%= link_to_add_association 'Add a Tenant', f, :tenants, :partial => 'tenants/tenant_fields', :render_options => {:wrapper => 'bootstrap' }, :class => "btn btn-small btn-primary" %>
+			</div>
+</div>

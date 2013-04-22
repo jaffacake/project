@@ -5,7 +5,7 @@ class Property < ActiveRecord::Base
   belongs_to :property_style
   
   has_and_belongs_to_many :landlords
-  #has_and_belongs_to_many :tenancy_agreements
+  has_and_belongs_to_many :tenancy_agreements
   
   has_many :property_images
   
@@ -15,9 +15,9 @@ class Property < ActiveRecord::Base
   :property_style_attributes, :sector, :reference , :occupied, :available_date, :property_style_attributes, :property_style_id, 
   :price, :lease_price, :payment_type, :tenure, :use_class, :square_feet, :floors, :bedrooms, :reception_rooms, :bathrooms, 
   :upstairs_bathroom, :downstairs_bathroom, :wc, :upstairs_wc, :downstairs_wc, :keycode, :description, :price_old, :price_change_date, 
-  :central_heating, :double_glazed, :front_garden, :back_garden, :drive_way, :furnished, :garage, :dss_accepted
+  :central_heating, :double_glazed, :front_garden, :back_garden, :drive_way, :furnished, :garage, :dss_accepted, :tenancy_agreements_attributes
   
-  accepts_nested_attributes_for :property_images,:landlords, :address, :estate_agent, :property_style#, :tenancy_agreements
+  accepts_nested_attributes_for :property_images,:landlords, :address, :estate_agent, :property_style, :tenancy_agreements
   
   validates_presence_of :property_style_id
 end

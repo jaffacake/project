@@ -1,6 +1,6 @@
 <h1>Listing properties</h1>
 
-<table id="properties" class="display">
+<table id="properties-table" class="display">
 	<thead>
   <tr>
     	<th>Property Ref</th>
@@ -9,13 +9,11 @@
 		<th>Occupied</th>
 		<th>Date Available</th>
 		<th>Beds</th>
+		<th>Baths</th>
 		<th>Recp</th>
 		<th>Furn</th>
-		<th>Prt Furn</th>
 		<th>DG</th>
 		<th>CH</th>
-		<th>B-Up</th>
-		<th>B-Down</th>
 		<th>Garage</th>
 		<th>DW</th>
   </tr>
@@ -24,18 +22,16 @@
 <% @properties.each do |property| %>
   <tr>
   	<td><%= property.reference %></td>
-  	<td><%= property.description %></td>
+  	<td><%= property.description.to_s.sub(%r{\A(.{20}).{4,}\z}, '\\1...') %></td>
   	<td><%= property.price %></td>
   	<td><%= property.occupied %></td>
   	<td><%= property.available_date %></td>
   	<td><%= property.bedrooms %></td>
+  	<td><%= property.bathrooms %></td>
   	<td><%= property.reception_rooms %></td>
   	<td><%= property.furnished %></td>
-  	<td><%= property.furnished %>!!!</td>
   	<td><%= property.double_glazed %></td>
   	<td><%= property.central_heating %></td>
-  	<td><%= property.upstairs_bathroom %></td>
-  	<td><%= property.downstairs_bathroom %></td>
   	<td><%= property.garage %></td>
   	<td><%= property.drive_way %></td>
   </tr>

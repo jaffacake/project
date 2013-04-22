@@ -1,7 +1,8 @@
- <h2>Tenant</h2>
- <fieldset>
- 	
+<div class="nested-fields">
+<h2>Tenant</h2>
+ 	<%= f.input :estate_agent_id, :as => 'hidden', :input_html => { value: current_user.estate_agent_id }  %>
 <h2>Contact Details</h2>
+	<% f.object.build_contact_detail.build_address %>
   	<%= f.fields_for :contact_detail do |builder|%>
 		<%= render 'contact_details/contact_detail_fields', f: builder %>
 	<% end %>
@@ -9,9 +10,10 @@
 	
 	
 	<h2>Place Of Work</h2>
+	<% f.object.build_place_of_work.build_contact_detail.build_address %>
   	<%= f.fields_for :place_of_work do |builder|%>
 		<%= render 'place_of_works/place_of_work_fields', f: builder %>
 	<% end %>
- 	
 	
-</fieldset>
+	<%= link_to_remove_association "Remove Tenant", f, :class => "btn btn-small btn-danger" %>
+</div>

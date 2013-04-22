@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require cocoon
 //= require dataTables/jquery.dataTables
-//= require dataTables/jquery.dataTables.bootstrap
 //= require bootstrap-alert
 //= require bootstrap-tooltip
 //= require bootstrap-transition
@@ -25,5 +24,12 @@
 //= require bootstrap-dropdown
 //= require bootstrap-wizard
 //= require bootstrap-lightbox
+//= require bootstrap-tooltip
 //= require jasny-bootstrap
 //= require_tree .
+
+$(document).ready(function () {
+  $('body').tooltip({
+    selector: '[rel=tooltip]'
+});
+});

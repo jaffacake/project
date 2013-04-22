@@ -29,6 +29,7 @@ class TenantsController < ApplicationController
   # GET /tenants/new.json
   def new
     @tenant = Tenant.new
+    
     @tenant.build_contact_detail
     @tenant.contact_detail.build_address
     
