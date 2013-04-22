@@ -6,7 +6,6 @@ gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
 gem 'mysql2'
 
 # Gems used only for assets and not required
@@ -33,8 +32,6 @@ gem 'friendly_id'
 #gem 'nested_form'
 #gem 'awesome_nested_fields'
 gem 'cocoon'
-
-gem 'wicked'
 
 gem 'rmagick', :require => 'RMagick'
 

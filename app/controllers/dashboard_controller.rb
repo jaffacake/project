@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :require_license!
   
   def index
     @estate_agent = EstateAgent.find(current_user.estate_agent_id)
