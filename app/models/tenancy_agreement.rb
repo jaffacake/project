@@ -1,6 +1,7 @@
 class TenancyAgreement < ActiveRecord::Base
   # attr_accessible :title, :body
   has_and_belongs_to_many :tenants
+  has_and_belongs_to_many :properties
   
   belongs_to :estate_agent
   

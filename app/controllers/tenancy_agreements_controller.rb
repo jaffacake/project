@@ -62,7 +62,7 @@ class TenancyAgreementsController < ApplicationController
     @tenancy_agreement.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       if @tenancy_agreement.save
-        format.html { redirect_to @tenancy_agreement, notice: 'Tenancy agreement was successfully created.' }
+        format.html { redirect_to tenancy_agreements_path, notice: 'Tenancy agreement was successfully created.' }
         format.json { render json: @tenancy_agreement, status: :created, location: @tenancy_agreement }
       else
         format.html { render action: "new" }
@@ -78,7 +78,7 @@ class TenancyAgreementsController < ApplicationController
 
     respond_to do |format|
       if @tenancy_agreement.update_attributes(params[:tenancy_agreement])
-        format.html { redirect_to @tenancy_agreement, notice: 'Tenancy agreement was successfully updated.' }
+        format.html { redirect_to tenancy_agreements_path, notice: 'Tenancy agreement was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

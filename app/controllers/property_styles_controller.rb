@@ -44,7 +44,7 @@ class PropertyStylesController < ApplicationController
 
     respond_to do |format|
       if @property_style.save
-        format.html { redirect_to @property_style, notice: 'Property style was successfully created.' }
+        format.html { redirect_to property_styles_path, notice: 'Property style was successfully created.' }
         format.json { render json: @property_style, status: :created, location: @property_style }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class PropertyStylesController < ApplicationController
 
     respond_to do |format|
       if @property_style.update_attributes(params[:property_style])
-        format.html { redirect_to @property_style, notice: 'Property style was successfully updated.' }
+        format.html { redirect_to property_styles_path, notice: 'Property style was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

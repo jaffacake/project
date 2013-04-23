@@ -36,4 +36,14 @@ class FrontEndsController < ApplicationController
     end
   end
   
+  def search
+    @estate_agent = EstateAgent.find(params[:id])
+    @properties = Property.find(:all, :conditions => ["estate_agent_id = ? AND description LIKE ? OR reference LIKE ?",@estate_agent.id,params[:keywords],params[:keywords]])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @properties }
+    end
+    
+  end
+  
 end

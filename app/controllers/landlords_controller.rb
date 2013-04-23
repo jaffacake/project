@@ -1,4 +1,5 @@
 class LandlordsController < ApplicationController
+  before_filter :authenticate_user!, :require_license!
   # GET /landlords
   # GET /landlords.json
   def index
@@ -51,7 +52,7 @@ class LandlordsController < ApplicationController
     @landlord.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       if @landlord.save
-        format.html { redirect_to @landlord, notice: 'Landlord was successfully created.' }
+        format.html { redirect_to landlords_path, notice: 'Landlord was successfully created.' }
         format.json { render json: @landlord, status: :created, location: @landlord }
       else
         format.html { render action: "new" }
@@ -67,7 +68,7 @@ class LandlordsController < ApplicationController
 
     respond_to do |format|
       if @landlord.update_attributes(params[:landlord])
-        format.html { redirect_to @landlord, notice: 'Landlord was successfully updated.' }
+        format.html { redirect_to landlords_path, notice: 'Landlord was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

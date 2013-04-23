@@ -1,4 +1,5 @@
 class ContactDetailsController < ApplicationController
+  before_filter :authenticate_user!, :require_license!
   # GET /contact_details
   # GET /contact_details.json
   def index

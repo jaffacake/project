@@ -1,9 +1,10 @@
 <div class="row-fluid">
-	 <div class="span2"></div>
-	 <div class="span8">
-	 	<%= @estate_agent.name%>
+	
+
+	 <div class="span12">
+	 	<h1><%= @estate_agent.name%></h1>
+	 	Search: <%= render 'search' %>
 	</div>
-	<div class="span2"></div>
 </div>
 		<%= render(@properties) || 'There are no properties available.'%>
 

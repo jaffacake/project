@@ -21,8 +21,10 @@
 						    <li><a href="#tab2" data-toggle="tab">Property Address</a></li>
 						    <li><a href="#tab3" data-toggle="tab">Property Details</a></li>
 						    <li><a href="#tab4" data-toggle="tab">Property Images</a></li>
+						    <% if params[:type]=='1' || f.object.payment_type==1%>
 						    <li><a href="#tab5" data-toggle="tab">Landlords</a></li>
 						    <li><a href="#tab6" data-toggle="tab">Tenants</a></li>
+						    <% end %>
 					    </ul>
     				</div>
     			</div>
@@ -40,20 +42,30 @@
 				    	<%= f.input :description, :input_html => {:rel => "tooltip", :title => "Add a long description about the property and it's features", :style => "height:50px"}, as: "text" %>
 				    	
 				    	<%= f.input :sector, collection: [['Residential', 0], ['Commercial', 1], ['BMV', 2]], prompt: "Select Property Sector" %>
-				
-			 			<%= f.input :payment_type, collection:[['Sale', 0], ['Let', 1]], prompt: "Select Type of Property" %>
+						
+						<% if params[:type]=='1' || f.object.payment_type==1%>
+							<%= f.input :payment_type, as: :hidden, input_html: { value: '1' } %>
+						<% else %>
+							<%= f.input :payment_type, as: :hidden, input_html: { value: '0' } %>
+						<% end %>
+			 			
 			 		
 						<%= f.input :property_style_id, collection: PropertyStyle.all, label_method: :style,value_method: :id, :prompt => true %>
 						
-						<%= f.input :tenure, collection: [[ 'Freehold', 0], ['Leasehold', 1]], prompt: "Select a Property Tenure"%>
-		  
+						<% if params[:type]=='1' || f.object.payment_type==1%>
+							<%= f.input :tenure, collection: [[ 'Freehold', 0], ['Leasehold', 1]], prompt: "Select a Property Tenure"%>
+		  				<% end %>
 		    			
 	    			</div>
 			    	<div class="span4">
-				    	<%= f.input :price, :input_html => {:rel => "tooltip", :title => "Enter Sale or Let price as digits only"} %>
-			  	
-			    		<%= f.input :lease_price, :input_html => {:rel => "tooltip", :title => "Only valid for commercial properties"} %>
-			  	
+			    		<% if params[:type]=='0' || f.object.payment_type==0 %>
+				    		<%= f.input :price, :input_html => {:rel => "tooltip", :title => "Enter Sale or Let price as digits only"} %>
+			  			<% end %>
+			  			
+			    		<% if params[:type]=='1' || f.object.payment_type==1 %>
+			    			<%= f.input :lease_price, :input_html => {:rel => "tooltip", :title => "Only valid for commercial properties"} %>
+			  			<% end %>
+			  			
 			    		<%= f.input :price_old, :input_html => {:rel => "tooltip", :title => "Enter the old price if it has been updated"} %>
 			  	
 			    		<%= f.input :price_change_date, as: :string, input_html: { data: 'datepicker' }  %>
@@ -130,29 +142,29 @@
 					</div>
 				</div>
 	    </div>
-	    
-	    <div class="tab-pane" id="tab5">
-	    	<div id="landlords">
-			<%= f.simple_fields_for :landlords  do |task|
-		      		render 'landlords/landlord_fields', :f => task 
-		      	end %>
-		      	<br/>
-		      	<div class="links">
-			<%= link_to_add_association 'Add a Landlord', f, :landlords, :partial => 'landlords/landlord_fields', :render_options => {:wrapper => 'bootstrap' }, :class => "btn btn-small btn-primary" %>
-			</div>
-			</div>
-	    </div>
-	    
-	    <div class="tab-pane" id="tab6">
-	    	<div class="row-fluid">
-	    			<div class="span12">
-			<%= f.simple_fields_for :tenancy_agreements  do |task|
-		      		render 'tenancy_agreements/tenancy_agreement_fields', :f => task 
-		      	end %>
-		      </div>
-		      </div>
-	    </div>
-
+	    <% if params[:type]=='1' || f.object.payment_type==1%>
+		    <div class="tab-pane" id="tab5">
+		    	<div id="landlords">
+				<%= f.simple_fields_for :landlords  do |task|
+			      		render 'landlords/landlord_fields', :f => task 
+			      	end %>
+			      	<br/>
+			      	<div class="links">
+				<%= link_to_add_association 'Add a Landlord', f, :landlords, :partial => 'landlords/landlord_fields', :render_options => {:wrapper => 'bootstrap' }, :class => "btn btn-small btn-primary" %>
+				</div>
+				</div>
+		    </div>
+		    
+		    <div class="tab-pane" id="tab6">
+		    	<div class="row-fluid">
+		    			<div class="span12">
+				<%= f.simple_fields_for :tenancy_agreements  do |task|
+			      		render 'tenancy_agreements/tenancy_agreement_fields', :f => task 
+			      	end %>
+			      </div>
+			      </div>
+		    </div>
+		<% end %>
 	    <ul class="pager wizard">
 		    <li class="previous"><a href="#">Previous</a></li>
 		    <li class="next"><a href="#">Next</a></li>

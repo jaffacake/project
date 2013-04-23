@@ -1,21 +1,57 @@
-<h1>Listing tenants</h1>
+<h1>Tenants</h1>
 
-<table>
+<table id="tenants-table" class="display">
+	<thead>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+  		<th>Actions</th>
+    	<th>Name</th>
+		<th>Email</th>
+		<th>Rent Due Date</th>
+		<th>Rent</th>
+		<th>Property Ref</th>
   </tr>
-
+  </thead>
+<tbody>
 <% @tenants.each do |tenant| %>
   <tr>
-    <td><%= link_to 'Show', tenant %></td>
-    <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
-    <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<td>
+	    <div class="btn-group">
+		    <a class="btn btn-primary" href="#"><i class="icon-home icon-white"></i> Tenant</a>
+		    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+ 				<ul class="dropdown-menu">
+ 					<li><a href="<%= edit_tenant_path(tenant)%>"><i class="icon-pencil"></i> Edit</a></li>
+ 									    <li class="divider"></li>
+				    <li><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="<%= tenant_path(tenant)%>"><i class="icon-trash"></i> Delete</a></li>
+
+
+ 				</ul>
+ 		</div>
+	</td>
+  	<td><%= tenant.contact_detail.first_name+" "+tenant.contact_detail.last_name %></td>
+  	<td><%= tenant.contact_detail.email %></td>
+  	<td><% 
+  	next_date = tenant.tenancy_agreements.first.payment_date
+  	unless next_date.future?
+	  	if tenant.tenancy_agreements.first.rent_frequency == 0
+	  		while next_date.past?
+		  		next_date=next_date.advance(:months => +1)
+			end
+	
+	  	else
+	  		while next_date.past?
+		  		next_date=next_date.advance(:weeks => +1)
+			end
+	  	end
+	end %>
+  	<%= next_date.to_formatted_s(:rfc822) %></td>
+  	<td><%= tenant.tenancy_agreements.first.rental_price %></td>
+	<td><%= tenant.tenancy_agreements.first.properties.first.reference %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
-<br />
 
-<%= link_to 'New Tenant', new_tenant_path %>
+<br />
+<br />
+<%= link_to 'New Tenant', new_tenant_path, :class => 'btn btn-primary' %>

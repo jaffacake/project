@@ -10,13 +10,13 @@ Crm::Application.routes.draw do
     get '/admin', to: 'dashboard#index', as: '/admin'
   #
   
-  authenticated :user do
-    root :to => redirect("/admin")
-  end
+  #authenticated :user do
+    #root :to => redirect("/admin")
+  #end
    # The priority is based upon order of creation:
   # first created -> highest priority.
   #resources :front_end
-
+  #resources :front_ends
   match '/:id' => 'front_ends#show'
   match '/:id/:controller/new' => 'searches#new'
   

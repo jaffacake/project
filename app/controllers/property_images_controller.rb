@@ -44,7 +44,7 @@ class PropertyImagesController < ApplicationController
 
     respond_to do |format|
       if @property_image.save
-        format.html { redirect_to @property_image, notice: 'Property image was successfully created.' }
+        format.html { redirect_to property_images_path, notice: 'Property image was successfully created.' }
         format.json { render json: @property_image, status: :created, location: @property_image }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class PropertyImagesController < ApplicationController
 
     respond_to do |format|
       if @property_image.update_attributes(params[:property_image])
-        format.html { redirect_to @property_image, notice: 'Property image was successfully updated.' }
+        format.html { redirect_to property_images_path, notice: 'Property image was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

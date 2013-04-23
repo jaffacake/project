@@ -3,10 +3,11 @@
 <table id="properties-table" class="display">
 	<thead>
   <tr>
+  		<th>Actions</th>
     	<th>Property Ref</th>
 		<th>Description</th>
 		<th>Price</th>
-		<th>Occupied</th>
+		<th>Street</th>
 		<th>Date Available</th>
 		<th>Beds</th>
 		<th>Baths</th>
@@ -21,10 +22,22 @@
 <tbody>
 <% @properties.each do |property| %>
   <tr>
+  	<td>
+	    <div class="btn-group">
+		    <a class="btn btn-primary" href="#"><i class="icon-home icon-white"></i> Property</a>
+		    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+ 				<ul class="dropdown-menu">
+ 					<li><a href="<%= edit_property_path(property)%>"><i class="icon-pencil"></i> Edit</a></li>
+ 									    <li class="divider"></li>
+				    <li><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="<%= property_path(property)%>"><i class="icon-trash"></i> Delete</a></li>
+
+ 				</ul>
+ 		</div>
+	</td>
   	<td><%= property.reference %></td>
   	<td><%= property.description.to_s.sub(%r{\A(.{20}).{4,}\z}, '\\1...') %></td>
   	<td><%= property.price %></td>
-  	<td><%= property.occupied %></td>
+  	<td><%= property.address.address_line2 %></td>
   	<td><%= property.available_date %></td>
   	<td><%= property.bedrooms %></td>
   	<td><%= property.bathrooms %></td>
@@ -40,5 +53,8 @@
 </table>
 
 <br />
+<br />
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to 'New Sale Property', new_property_path(:type=>'0'), :class => 'btn btn-primary' %>
+
+<%= link_to 'New Let Property', new_property_path(:type=>'1'), :class => 'btn btn-primary' %>

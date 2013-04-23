@@ -2,7 +2,6 @@
 	<div class="span12">
 <h1>Estate Agents</h1>
 <% @estate_agent.each do |estate_agent| %>
-
 	<div class="row-fluid spacer">
 		<div class="span3">
 			<% if estate_agent.estate_agents_images.any?%>
@@ -12,6 +11,8 @@
 	        	<% end %>
 		</div>
 		<div class="span9">
+			<div class="row-fluid">
+				<div class="span6">
 			<h2><%= estate_agent.name %></h2><br />
 			<%= estate_agent.contact_detail.address.address_line1 %>
 			<br />
@@ -27,8 +28,13 @@
 			<br />
 			<%= estate_agent.contact_detail.email %>
 			<br />
-			<%= link_to 'View Properties', estate_agent.name, :class => "btn btn-primary" %>
+			<br />
+				</div>
+				<div class="span3">
+					<%= link_to 'View Properties', estate_agent.slug, :class => "btn btn-primary", :style => "clear:both" %>
+				</div></div>
 		</div>
+
 	</div>
 <% end %>
 

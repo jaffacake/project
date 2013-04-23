@@ -1,21 +1,43 @@
-<h1>Listing landlords</h1>
+<h1>Landlords</h1>
 
-<table>
+
+<table id="landlords-table" class="display">
+	<thead>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+	  	<th>Actions</th>
+  		<th>Name</th>
+		<th>Tel</th>
+		<th>Mobile</th>
+		<th>Joined Date</th>
+		<th>Address</th>
   </tr>
-
+  </thead>
+<tbody>
 <% @landlords.each do |landlord| %>
   <tr>
-    <td><%= link_to 'Show', landlord %></td>
-    <td><%= link_to 'Edit', edit_landlord_path(landlord) %></td>
-    <td><%= link_to 'Destroy', landlord, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<td>
+	    <div class="btn-group">
+		    <a class="btn btn-primary" href="#"><i class="icon-home icon-white"></i> Landlord</a>
+		    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+ 				<ul class="dropdown-menu">
+ 					<li><a href="<%= edit_landlord_path(landlord)%>"><i class="icon-pencil"></i> Edit</a></li>
+ 									    <li class="divider"></li>
+				    <li><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="<%= landlord_path(landlord)%>"><i class="icon-trash"></i> Delete</a></li>
+
+
+ 				</ul>
+ 		</div>
+	</td>
+  	<td><%= landlord.contact_detail.first_name %> <%= landlord.contact_detail.last_name %></td>
+  	<td><%= landlord.contact_detail.email %></td>
+  	<td><%= landlord.contact_detail.landline_number%></td>
+  	<td><% unless landlord.contact_detail.mobile_number.nil? %><%= landlord.contact_detail.mobile_number%><%end%></td>
+  	<td><%unless landlord.contact_detail.address.nil?%><%= landlord.contact_detail.address.address_line1 %>, <%=landlord.contact_detail.address.address_line2%><%end%></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
-
-<%= link_to 'New Landlord', new_landlord_path %>
+<br />
+<%= link_to 'New Landlord', new_landlord_path, :class => 'btn btn-primary' %>

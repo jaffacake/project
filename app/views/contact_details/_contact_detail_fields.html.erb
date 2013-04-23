@@ -1,4 +1,5 @@
-
+<div class="row-fluid">
+	<div class="span6">
     	<%= f.input :title, collection: [['Mr', 1], ['Mrs', 2],['Ms', 3],['Miss', 4]], prompt: 'Title:' %>
     	  	
     	<%= f.input :first_name %>
@@ -16,9 +17,12 @@
     	<%= f.input :email %>
 
     	<%= f.input :best_contact_time %>
-
+    	</div>
+<div class="span6">
 <h2>Address</h2>
 	<%= f.simple_fields_for :address do |builder|%>
 		<%= render 'addresses/address_fields', f: builder %>
 	<% end %>
+	</div>
+	</div>
 

@@ -1,22 +1,42 @@
-<h1>Listing Users</h1>
+<h1>Users</h1>
 
-<table>
+<table id="users-table" class="display">
+	<thead>
   <tr>
-    <th>Username</th>
-    <th>Email</th>
-    <th>Estate Agent</th>
+	  	<th>Actions</th>
+  		<th>Username</th>
+		<th>Email</th>
+		<th>Joined Date</th>
+		<th>Address</th>
   </tr>
-
+  </thead>
+<tbody>
 <% @users.each do |user| %>
   <tr>
-  	<td><%= user.username %></td>
+  	<td>
+	    <div class="btn-group">
+		    <a class="btn btn-primary" href="#"><i class="icon-home icon-white"></i> User</a>
+		    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+ 				<ul class="dropdown-menu">
+ 					<li><a href="<%= edit_user_path(user)%>"><i class="icon-pencil"></i> Edit</a></li>
+ 									    <li class="divider"></li>
+				    <li><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="<%= user_path(user)%>"><i class="icon-trash"></i> Delete</a></li>
+
+
+ 				</ul>
+ 		</div>
+	</td>
+  	<td><%= user.username%></td>
   	<td><%= user.email %></td>
-  	<td><%= user.estate_agent.name %></td>
-  	<td><%= link_to 'Show', user %> | <%= link_to 'Edit', edit_user_path(user) %> | <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	<td><%= user.created_at.to_date.to_formatted_s(:rfc822)%></td>
+  	<td><%unless user.address.nil?%><%= user.address.address_line1 %>, <%=user.address.address_line2%><%end%></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
-<br />
 
-<%= link_to 'New User', new_user_path %>
+<br />
+<br />
+<%= link_to 'New User', new_user_path, :class => 'btn btn-primary' %>
+

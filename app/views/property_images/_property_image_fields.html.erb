@@ -7,7 +7,21 @@
   		
   		<%= f.input :remote_image_url %>
 	   
-	   <div class="fileupload fileupload-new" data-provides="fileupload">
+	   <% if params.has_key?(:id) && !f.object.image_url.nil? %>
+	   <div class="fileupload fileupload-exists" data-provides="fileupload">
+			<div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
+				<%= image_tag f.object.image_url(:thumb).to_s %>
+			</div>
+			<div>
+				<span class="btn btn-file"><span class="fileupload-new">Select image</span>
+				<span class="fileupload-exists">Change</span>
+				<%= f.input_field :image, as: :file %></span>
+				<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+			</div>
+		</div>
+		<% else %>
+		
+		 <div class="fileupload fileupload-new" data-provides="fileupload">
 			<div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;">
 				
 			</div>
@@ -18,6 +32,8 @@
 				<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 			</div>
 		</div>
+		
+		<% end %>
 
 
 <%= link_to_remove_association "Remove Image", f, :class => "btn btn-small btn-danger" %>

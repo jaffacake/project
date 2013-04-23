@@ -1,0 +1,15 @@
+<%= 
+form_tag( '/#search', :remote => true, :action => :search, :method => "get" ) do
+ %>
+  <div class="field">
+    <%= label_tag :keywords %><br />
+    <%= text_field_tag  :keywords, params[:keywords] %>
+  </div>
+
+  <div class="field">
+    <%= label_tag  :min_price, "Price Range" %><br />
+    <%= text_field_tag  :min_price %> -
+    <%= text_field_tag  :max_price %>
+  </div>
+  <div class="actions"><%= submit_tag  "Search" %></div>
+<% end %>

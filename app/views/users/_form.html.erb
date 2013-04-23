@@ -1,3 +1,5 @@
+<div class="row-fluid">
+	<div class="span6">
 <%= simple_form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -17,34 +19,34 @@
 
   <%= f.input :password, as: :password %>
 
-  <%= f.input :password_confirmation, as: :password %></div>
-  
-  
-  <h2>Address</h2>
-	
-	<%= f.fields_for :address do |builder|%>
-		<%= render 'addresses/address_fields', f: builder %>
-	<% end %>
-	
+  <%= f.input :password_confirmation, as: :password %>
   
   <% if current_user.id != @user.id %>
-		<div class="select">
-			<%= f.label(:admin, "Estate Agent Admin") %>
-			<%= f.radio_button(:admin, "1") %>
-			<%= f.label(:admin, "Estate Agent User") %>
-			<%= f.radio_button(:admin, "0") %>
-		</div>
-	<% end %>
-	
-	<% if current_user.admin == 3 && current_user.id != @user.id %>
-  		<div class="dropdown">
-		  	<%= f.label :estate_agent_id %><br />
-		  	<%= f.select(:estate_agent_id, EstateAgent.all.map {|p| [p.name,p.id]}, :prompt => "Select an Estate Agent") %>
-	  	</div>
-  	<% end %>
-  	<br />
-  	
-  	<div class="actions">
-    <%= f.submit %>
+			<div class="select">
+				<%= f.input :admin, :collection => [["Admin","1"],["User","0"]], :prompt => "Select User Priveledges"%>
+			</div>
+		<% end %>
+		
+		<% if current_user.admin == 3 && current_user.id != @user.id %>
+	  		<div class="dropdown">
+			  	<%= f.label :estate_agent_id %><br />
+			  	<%= f.select(:estate_agent_id, EstateAgent.all.map {|p| [p.name,p.id]}, :prompt => "Select an Estate Agent") %>
+		  	</div>
+	  	<% end %>
+  
   </div>
+  <div class="span6">
+	  <h2>Address</h2>
+		
+		<%= f.fields_for :address do |builder|%>
+			<%= render 'addresses/address_fields', f: builder %>
+		<% end %>
+		
+	  
+	  
+	  	<br />
+	  </div>
+  	
+    <%= f.button :submit, :class => 'btn btn-primary' %>
 <% end %>
+</div>

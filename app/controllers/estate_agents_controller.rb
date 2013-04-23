@@ -1,4 +1,5 @@
 class EstateAgentsController < ApplicationController
+  before_filter :authenticate_user!, :require_license!
   # GET /estate_agents
   # GET /estate_agents.json
   def index
@@ -47,7 +48,7 @@ class EstateAgentsController < ApplicationController
     @estate_agent = EstateAgent.new(params[:estate_agent])
     respond_to do |format|
       if @estate_agent.save
-        format.html { redirect_to @estate_agent, notice: 'Estate agent was successfully created.' }
+        format.html { redirect_to estate_agents_path, notice: 'Estate agent was successfully created.' }
         format.json { render json: @estate_agent, status: :created, location: @estate_agent }
       else
         format.html { render action: "new" }
@@ -63,7 +64,7 @@ class EstateAgentsController < ApplicationController
 
     respond_to do |format|
       if @estate_agent.update_attributes(params[:estate_agent])
-        format.html { redirect_to @estate_agent, notice: 'Estate agent was successfully updated.' }
+        format.html { redirect_to estate_agents_path, notice: 'Estate agent was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

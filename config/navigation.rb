@@ -50,18 +50,19 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>. 
     #
     if user_signed_in?
-      primary.item :dashboard, "Dashboard", root_path
+      primary.item :dashboard, "Dashboard", root_path+"admin"
       
       primary.item :properties, 'Properties', properties_path do |types|
-        types.item :sold_properties, 'Sale Properties', properties_path
-        types.item :let_properties, 'Let Properties', properties_path
-        types.item :new_property, 'Add New Property', new_property_path
-      end
+        types.item :sold_properties, 'Sale Properties', properties_path(:type=>'0')
+        types.item :let_properties, 'Let Properties', properties_path(:type=>'1')
+        types.item :new_sale_property, 'Add New Sale Property', new_property_path(:type=>'0')
+        types.item :new_let_property, 'Add New Let Property', new_property_path(:type=>'1')     
+     end
 
 
     # Add an item which has a sub navigation (same params, but with block)
       primary.item :tenants, 'Tenants', tenants_path
-      if current_user.admin == 2
+      if current_user.admin == 2 || current_user.admin == 3
           primary.item :users, 'Users', users_path
       end
       if current_user.admin == 3
@@ -77,6 +78,7 @@ SimpleNavigation::Configuration.run do |navigation|
         primary.item :edit_profile, 'Edit Profile', edit_user_path(current_user)
         primary.item :logout, 'Logout', destroy_user_session_path, method: :delete 
      else
+      primary.item :home, 'Home', root_path 
         primary.item :login, 'Login', new_user_session_path 
     end
 

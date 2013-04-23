@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
- 
+  
+  def after_sign_in_path_for(resource)       
+      stored_location_for(resource) || admin_path          
+  end  
   def require_license!
     if current_user.estate_agent.license_expiry_date.past?
       sign_out :user

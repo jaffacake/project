@@ -1,12 +1,16 @@
 class PropertiesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :require_license!
   # GET /properties
   # GET /properties.json
   def index
-    if current_user.admin == 3
-      @properties = Property.all
+    if current_user.admin == 3 
+      @properties = Property.find(params[:type])
     else
-      @properties = Property.where("estate_agent_id = ?", current_user.estate_agent_id)
+      if params.has_key?(:type)
+        @properties = Property.where("estate_agent_id = ? AND payment_type = ?", current_user.estate_agent_id, params[:type])
+      else
+        @properties = Property.where("estate_agent_id = ?", current_user.estate_agent_id)
+      end
     end
 
     respond_to do |format|
@@ -67,7 +71,7 @@ class PropertiesController < ApplicationController
     @property.estate_agent_id = current_user.estate_agent_id
     respond_to do |format|
       if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
+        format.html { redirect_to properties_path, notice: 'Property was successfully created.' }
         format.json { render json: @property, status: :created, location: @property }
       else
         format.html { render action: "new" }
@@ -83,7 +87,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.update_attributes(params[:property])
-        format.html { redirect_to @property, notice: 'Property was successfully updated.' }
+        format.html { redirect_to properties_path, notice: 'Property was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
